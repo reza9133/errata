@@ -1,0 +1,312 @@
+{
+  "ctor": {
+    "params": [],
+    "kwparams": {}
+  },
+  "methods": {
+    "cancel_bounty": {
+      "params": [
+        [
+          "bounty_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "commit_finding": {
+      "params": [
+        [
+          "publisher_text",
+          "string"
+        ],
+        [
+          "bounty_id",
+          "string"
+        ],
+        [
+          "commitment_text",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "int",
+      "payable": false
+    },
+    "deposit_credit": {
+      "params": [],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "int",
+      "payable": true
+    },
+    "finalize_bounty": {
+      "params": [
+        [
+          "publisher_text",
+          "string"
+        ],
+        [
+          "bounty_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "get_accounting": {
+      "params": [],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "dict"
+    },
+    "get_available_credit": {
+      "params": [
+        [
+          "owner_text",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "int"
+    },
+    "get_bounty": {
+      "params": [
+        [
+          "publisher_text",
+          "string"
+        ],
+        [
+          "bounty_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "dict"
+    },
+    "get_errata": {
+      "params": [
+        [
+          "publisher_text",
+          "string"
+        ],
+        [
+          "bounty_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "dict"
+    },
+    "get_finding": {
+      "params": [
+        [
+          "publisher_text",
+          "string"
+        ],
+        [
+          "bounty_id",
+          "string"
+        ],
+        [
+          "index",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "dict"
+    },
+    "get_findings": {
+      "params": [
+        [
+          "publisher_text",
+          "string"
+        ],
+        [
+          "bounty_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "dict"
+    },
+    "get_info": {
+      "params": [],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "dict"
+    },
+    "get_standing": {
+      "params": [
+        [
+          "publisher_text",
+          "string"
+        ],
+        [
+          "bounty_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "dict"
+    },
+    "open_bounty": {
+      "params": [
+        [
+          "bounty_id",
+          "string"
+        ],
+        [
+          "title_text",
+          "string"
+        ],
+        [
+          "subject_url_text",
+          "string"
+        ],
+        [
+          "subject_hash_text",
+          "string"
+        ],
+        [
+          "reward_arithmetic",
+          "int"
+        ],
+        [
+          "reward_contradiction",
+          "int"
+        ],
+        [
+          "reward_definition",
+          "int"
+        ],
+        [
+          "budget_wei",
+          "int"
+        ],
+        [
+          "bond_wei",
+          "int"
+        ],
+        [
+          "max_findings",
+          "int"
+        ],
+        [
+          "commit_by",
+          "int"
+        ],
+        [
+          "reveal_by",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "string",
+      "payable": false
+    },
+    "reveal_finding": {
+      "params": [
+        [
+          "publisher_text",
+          "string"
+        ],
+        [
+          "bounty_id",
+          "string"
+        ],
+        [
+          "index",
+          "int"
+        ],
+        [
+          "kind",
+          "int"
+        ],
+        [
+          "quote_a_text",
+          "string"
+        ],
+        [
+          "quote_b_text",
+          "string"
+        ],
+        [
+          "note_text",
+          "string"
+        ],
+        [
+          "mirror_url_text",
+          "string"
+        ],
+        [
+          "salt_text",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "review_finding": {
+      "params": [
+        [
+          "publisher_text",
+          "string"
+        ],
+        [
+          "bounty_id",
+          "string"
+        ],
+        [
+          "index",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "withdraw_credit": {
+      "params": [],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "withdraw_finding": {
+      "params": [
+        [
+          "publisher_text",
+          "string"
+        ],
+        [
+          "bounty_id",
+          "string"
+        ],
+        [
+          "index",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    }
+  }
+}
