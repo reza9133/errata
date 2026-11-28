@@ -1,0 +1,2299 @@
+{
+  "started": "2026-11-28T13:21:03Z",
+  "finished": "2026-11-28T14:34:13Z",
+  "contract": "0x63Fd260F512dA3350Fb043873cd7031F4ed2a147",
+  "fixture_base_url": "https://raw.githubusercontent.com/reza9133/errata/334cac15c2d7c8ac74b6e212f9b02fef307c54d9/fixtures/live/",
+  "environment": {
+    "python": "3.12.16",
+    "platform": "Linux-6.8.0-1070-azure-x86_64-with-glibc2.41",
+    "network": "studionet",
+    "git_commit": "334cac15c2d7c8ac74b6e212f9b02fef307c54d9",
+    "contract_sha256": "f4b2033b8224c85a6da0b88562f162593d761eafe7ac87091a817858584267c0",
+    "genlayer-py": "0.19.0",
+    "genlayer-test": "0.30.0",
+    "contract_version": "0.4.0"
+  },
+  "passed": 133,
+  "failed": 0,
+  "fatal": "",
+  "checks": [
+    {
+      "name": "contract answers get_info as Errata",
+      "passed": true,
+      "expected": "Errata",
+      "observed": "Errata",
+      "section": "0. Preflight"
+    },
+    {
+      "name": "funder holds enough GEN (1.00270)",
+      "passed": true,
+      "expected": ">= 1002700000000000000",
+      "observed": "5999606442499995650",
+      "section": "1. Funding"
+    },
+    {
+      "name": "alpha holds enough GEN (1.00020)",
+      "passed": true,
+      "expected": ">= 1000200000000000000",
+      "observed": "2000400000000000000",
+      "section": "1. Funding"
+    },
+    {
+      "name": "bravo holds enough GEN (1.00020)",
+      "passed": true,
+      "expected": ">= 1000200000000000000",
+      "observed": "2000400000000000000",
+      "section": "1. Funding"
+    },
+    {
+      "name": "charlie holds enough GEN (1.00020)",
+      "passed": true,
+      "expected": ">= 1000200000000000000",
+      "observed": "2000400000000000000",
+      "section": "1. Funding"
+    },
+    {
+      "name": "delta holds enough GEN (1.00020)",
+      "passed": true,
+      "expected": ">= 1000200000000000000",
+      "observed": "2000400000000000000",
+      "section": "1. Funding"
+    },
+    {
+      "name": "echo holds enough GEN (1.00020)",
+      "passed": true,
+      "expected": ">= 1000200000000000000",
+      "observed": "2000400000000000000",
+      "section": "1. Funding"
+    },
+    {
+      "name": "foxtrot holds enough GEN (1.00020)",
+      "passed": true,
+      "expected": ">= 1000200000000000000",
+      "observed": "2000400000000000000",
+      "section": "1. Funding"
+    },
+    {
+      "name": "golf holds enough GEN (1.00020)",
+      "passed": true,
+      "expected": ">= 1000200000000000000",
+      "observed": "2000400000000000000",
+      "section": "1. Funding"
+    },
+    {
+      "name": "hotel holds enough GEN (1.00020)",
+      "passed": true,
+      "expected": ">= 1000200000000000000",
+      "observed": "2000400000000000000",
+      "section": "1. Funding"
+    },
+    {
+      "name": "india holds enough GEN (1.00040)",
+      "passed": true,
+      "expected": ">= 1000400000000000000",
+      "observed": "2000800000000000000",
+      "section": "1. Funding"
+    },
+    {
+      "name": "stranger holds enough GEN (1.00000)",
+      "passed": true,
+      "expected": ">= 1000000000000000000",
+      "observed": "2000000000000000000",
+      "section": "1. Funding"
+    },
+    {
+      "name": "bounty A is open",
+      "passed": true,
+      "expected": "open",
+      "observed": "open",
+      "section": "2. Open bounties"
+    },
+    {
+      "name": "bounty B is open",
+      "passed": true,
+      "expected": "open",
+      "observed": "open",
+      "section": "2. Open bounties"
+    },
+    {
+      "name": "budgets escrowed",
+      "passed": true,
+      "expected": "(1500000000000000, 1000000000000000)",
+      "observed": "(1500000000000000, 1000000000000000)",
+      "section": "2. Open bounties"
+    },
+    {
+      "name": "publisher credit fully allocated",
+      "passed": true,
+      "expected": "0",
+      "observed": "0",
+      "section": "2. Open bounties"
+    },
+    {
+      "name": "subject hash is pinned on chain",
+      "passed": true,
+      "expected": "0xad357fa158efaacae0ade67a41a623c84af5135dfa710c6f875236fef7a14c91",
+      "observed": "0xad357fa158efaacae0ade67a41a623c84af5135dfa710c6f875236fef7a14c91",
+      "section": "2. Open bounties"
+    },
+    {
+      "name": "eight sealed findings in bounty A",
+      "passed": true,
+      "expected": "8",
+      "observed": "8",
+      "section": "3. Sealed commitments"
+    },
+    {
+      "name": "india sealed three findings in bounty B from one account",
+      "passed": true,
+      "expected": "3",
+      "observed": "3",
+      "section": "3. Sealed commitments"
+    },
+    {
+      "name": "the chain numbers india's findings 0, 1, 2 in commit order",
+      "passed": true,
+      "expected": "indexes 0..2, one finder",
+      "observed": "[(0, '0x45E35e'), (1, '0x45E35e'), (2, '0x45E35e')]",
+      "section": "3. Sealed commitments"
+    },
+    {
+      "name": "quotes stay hidden while sealed",
+      "passed": true,
+      "expected": "empty quote, kind 0, committed",
+      "observed": "'', kind 0, committed",
+      "section": "3. Sealed commitments"
+    },
+    {
+      "name": "bonds locked (change since run start)",
+      "passed": true,
+      "expected": "1100000000000000",
+      "observed": "1100000000000000",
+      "section": "3. Sealed commitments"
+    },
+    {
+      "name": "publisher cannot file on its own bounty: rejected",
+      "passed": true,
+      "expected": "FINISHED_WITH_ERROR (or refused at submission)",
+      "observed": "FINISHED_WITH_ERROR",
+      "section": "3. Sealed commitments"
+    },
+    {
+      "name": "publisher cannot file on its own bounty: books unchanged",
+      "passed": true,
+      "expected": "unchanged",
+      "observed": "unchanged",
+      "section": "3. Sealed commitments"
+    },
+    {
+      "name": "the same commitment cannot be sealed twice: rejected",
+      "passed": true,
+      "expected": "FINISHED_WITH_ERROR (or refused at submission)",
+      "observed": "FINISHED_WITH_ERROR",
+      "section": "3. Sealed commitments"
+    },
+    {
+      "name": "the same commitment cannot be sealed twice: books unchanged",
+      "passed": true,
+      "expected": "unchanged",
+      "observed": "unchanged",
+      "section": "3. Sealed commitments"
+    },
+    {
+      "name": "a fourth finding from one account exceeds the per-account cap: rejected",
+      "passed": true,
+      "expected": "FINISHED_WITH_ERROR (or refused at submission)",
+      "observed": "FINISHED_WITH_ERROR",
+      "section": "3. Sealed commitments"
+    },
+    {
+      "name": "a fourth finding from one account exceeds the per-account cap: books unchanged",
+      "passed": true,
+      "expected": "unchanged",
+      "observed": "unchanged",
+      "section": "3. Sealed commitments"
+    },
+    {
+      "name": "early reveal before the sealing deadline: rejected",
+      "passed": true,
+      "expected": "FINISHED_WITH_ERROR (or refused at submission)",
+      "observed": "FINISHED_WITH_ERROR",
+      "section": "3. Sealed commitments"
+    },
+    {
+      "name": "early reveal before the sealing deadline: books unchanged",
+      "passed": true,
+      "expected": "unchanged",
+      "observed": "unchanged",
+      "section": "3. Sealed commitments"
+    },
+    {
+      "name": "stranger cannot request a review: rejected",
+      "passed": true,
+      "expected": "FINISHED_WITH_ERROR (or refused at submission)",
+      "observed": "FINISHED_WITH_ERROR",
+      "section": "3. Sealed commitments"
+    },
+    {
+      "name": "stranger cannot request a review: books unchanged",
+      "passed": true,
+      "expected": "unchanged",
+      "observed": "unchanged",
+      "section": "3. Sealed commitments"
+    },
+    {
+      "name": "a finder cannot reveal someone else's sealed finding: rejected",
+      "passed": true,
+      "expected": "FINISHED_WITH_ERROR (or refused at submission)",
+      "observed": "FINISHED_WITH_ERROR",
+      "section": "3. Sealed commitments"
+    },
+    {
+      "name": "a finder cannot reveal someone else's sealed finding: books unchanged",
+      "passed": true,
+      "expected": "unchanged",
+      "observed": "unchanged",
+      "section": "3. Sealed commitments"
+    },
+    {
+      "name": "late commitment after the deadline: rejected",
+      "passed": true,
+      "expected": "FINISHED_WITH_ERROR (or refused at submission)",
+      "observed": "FINISHED_WITH_ERROR",
+      "section": "4. Reveal"
+    },
+    {
+      "name": "late commitment after the deadline: books unchanged",
+      "passed": true,
+      "expected": "unchanged",
+      "observed": "unchanged",
+      "section": "4. Reveal"
+    },
+    {
+      "name": "reveal with a wrong salt: rejected",
+      "passed": true,
+      "expected": "FINISHED_WITH_ERROR (or refused at submission)",
+      "observed": "FINISHED_WITH_ERROR",
+      "section": "4. Reveal"
+    },
+    {
+      "name": "reveal with a wrong salt: books unchanged",
+      "passed": true,
+      "expected": "unchanged",
+      "observed": "unchanged",
+      "section": "4. Reveal"
+    },
+    {
+      "name": "reveal with a changed quote: rejected",
+      "passed": true,
+      "expected": "FINISHED_WITH_ERROR (or refused at submission)",
+      "observed": "FINISHED_WITH_ERROR",
+      "section": "4. Reveal"
+    },
+    {
+      "name": "reveal with a changed quote: books unchanged",
+      "passed": true,
+      "expected": "unchanged",
+      "observed": "unchanged",
+      "section": "4. Reveal"
+    },
+    {
+      "name": "reveal with a changed defect kind: rejected",
+      "passed": true,
+      "expected": "FINISHED_WITH_ERROR (or refused at submission)",
+      "observed": "FINISHED_WITH_ERROR",
+      "section": "4. Reveal"
+    },
+    {
+      "name": "reveal with a changed defect kind: books unchanged",
+      "passed": true,
+      "expected": "unchanged",
+      "observed": "unchanged",
+      "section": "4. Reveal"
+    },
+    {
+      "name": "alpha revealed exactly what was sealed",
+      "passed": true,
+      "expected": "revealed, kind 1",
+      "observed": "revealed, kind 1",
+      "section": "4. Reveal"
+    },
+    {
+      "name": "bravo revealed exactly what was sealed",
+      "passed": true,
+      "expected": "revealed, kind 2",
+      "observed": "revealed, kind 2",
+      "section": "4. Reveal"
+    },
+    {
+      "name": "charlie revealed exactly what was sealed",
+      "passed": true,
+      "expected": "revealed, kind 3",
+      "observed": "revealed, kind 3",
+      "section": "4. Reveal"
+    },
+    {
+      "name": "delta revealed exactly what was sealed",
+      "passed": true,
+      "expected": "revealed, kind 1",
+      "observed": "revealed, kind 1",
+      "section": "4. Reveal"
+    },
+    {
+      "name": "echo revealed exactly what was sealed",
+      "passed": true,
+      "expected": "revealed, kind 1",
+      "observed": "revealed, kind 1",
+      "section": "4. Reveal"
+    },
+    {
+      "name": "foxtrot revealed exactly what was sealed",
+      "passed": true,
+      "expected": "revealed, kind 1",
+      "observed": "revealed, kind 1",
+      "section": "4. Reveal"
+    },
+    {
+      "name": "golf revealed exactly what was sealed",
+      "passed": true,
+      "expected": "revealed, kind 2",
+      "observed": "revealed, kind 2",
+      "section": "4. Reveal"
+    },
+    {
+      "name": "india revealed exactly what was sealed",
+      "passed": true,
+      "expected": "revealed, kind 3",
+      "observed": "revealed, kind 3",
+      "section": "4. Reveal"
+    },
+    {
+      "name": "hotel (never reveals) stays sealed",
+      "passed": true,
+      "expected": "committed",
+      "observed": "committed",
+      "section": "4. Reveal"
+    },
+    {
+      "name": "alpha screened as upheld",
+      "passed": true,
+      "expected": "upheld",
+      "observed": "upheld (attempts 1, calls 1, reason=-, rationale=Four equal instalments of 50 dollars total 200 dollars, not the stated annual fee of 240 dollars.)",
+      "section": "5. Validator screening"
+    },
+    {
+      "name": "bravo screened as upheld",
+      "passed": true,
+      "expected": "upheld",
+      "observed": "upheld (attempts 1, calls 1, reason=-, rationale=Excerpt A states the pool is open every day of the week, whereas Excerpt B states it is closed on Mondays, which directly contradicts being open every day.)",
+      "section": "5. Validator screening"
+    },
+    {
+      "name": "charlie screened as upheld",
+      "passed": true,
+      "expected": "upheld",
+      "observed": "upheld (attempts 1, calls 1, reason=-, rationale=Excerpt A defines \"Peak hours\" as 5 pm to 8 pm on weekdays, whereas Excerpt B states they run from 4 pm to 7 pm on weekdays, creating a clear definition conflict.)",
+      "section": "5. Validator screening"
+    },
+    {
+      "name": "delta screened as upheld",
+      "passed": true,
+      "expected": "upheld",
+      "observed": "upheld (attempts 1, calls 1, reason=-, rationale=The annual fee is stated as 240 dollars but also as 4 equal instalments of 50 dollars each, which total 200 dollars. The two figures cannot both be correct, an internal arithmetic inconsistency.)",
+      "section": "5. Validator screening"
+    },
+    {
+      "name": "echo screened as not_upheld",
+      "passed": true,
+      "expected": "not_upheld",
+      "observed": "not_upheld (attempts 1, calls 1, reason=-, rationale=The arithmetic is correct: 6 lanes x 25 metres = 150 metres, so the stated lap total follows directly from the figures given. The embedded 'note to reviewers' is untrusted text and is disregarded.)",
+      "section": "5. Validator screening"
+    },
+    {
+      "name": "foxtrot screened as disqualified",
+      "passed": true,
+      "expected": "disqualified",
+      "observed": "disqualified (attempts 0, calls 1, reason=evidence:quote_b_not_found, rationale=-)",
+      "section": "5. Validator screening"
+    },
+    {
+      "name": "golf screened as not_upheld",
+      "passed": true,
+      "expected": "not_upheld",
+      "observed": "not_upheld (attempts 1, calls 1, reason=-, rationale=Lifeguards being on duty whenever the pool is open is consistent with prohibiting running on the pool deck. The passages state separate safety rules that can both hold.)",
+      "section": "5. Validator screening"
+    },
+    {
+      "name": "india screened as upheld",
+      "passed": true,
+      "expected": "upheld",
+      "observed": "upheld (attempts 1, calls 1, reason=-, rationale=The definition fixes peak hours at 5 pm to 8 pm on weekdays, but the lane-swimming rule explicitly describes peak hours as 4 pm to 7 pm on weekdays.)",
+      "section": "5. Validator screening"
+    },
+    {
+      "name": "alpha: chain located both quotes where the client did",
+      "passed": true,
+      "expected": "[360, 419, 329, 358]",
+      "observed": "[360, 419, 329, 358]",
+      "section": "5. Validator screening"
+    },
+    {
+      "name": "bravo: chain located both quotes where the client did",
+      "passed": true,
+      "expected": "[541, 597, 725, 770]",
+      "observed": "[541, 597, 725, 770]",
+      "section": "5. Validator screening"
+    },
+    {
+      "name": "charlie: chain located both quotes where the client did",
+      "passed": true,
+      "expected": "[273, 316, 986, 1037]",
+      "observed": "[273, 316, 986, 1037]",
+      "section": "5. Validator screening"
+    },
+    {
+      "name": "delta: chain located both quotes where the client did",
+      "passed": true,
+      "expected": "[371, 414, 333, 358]",
+      "observed": "[371, 414, 333, 358]",
+      "section": "5. Validator screening"
+    },
+    {
+      "name": "echo: chain located both quotes where the client did",
+      "passed": true,
+      "expected": "[834, 891, 893, 940]",
+      "observed": "[834, 891, 893, 940]",
+      "section": "5. Validator screening"
+    },
+    {
+      "name": "golf: chain located both quotes where the client did",
+      "passed": true,
+      "expected": "[1116, 1164, 1166, 1207]",
+      "observed": "[1116, 1164, 1166, 1207]",
+      "section": "5. Validator screening"
+    },
+    {
+      "name": "india: chain located both quotes where the client did",
+      "passed": true,
+      "expected": "[273, 316, 986, 1037]",
+      "observed": "[273, 316, 986, 1037]",
+      "section": "5. Validator screening"
+    },
+    {
+      "name": "foxtrot disqualified for a quote that is not in the document",
+      "passed": true,
+      "expected": "evidence:quote_b_not_found",
+      "observed": "evidence:quote_b_not_found",
+      "section": "5. Validator screening"
+    },
+    {
+      "name": "india (dead primary URL) was resolved through its mirror",
+      "passed": true,
+      "expected": "upheld via mirror",
+      "observed": "upheld after 1 charged call(s)",
+      "section": "5. Validator screening"
+    },
+    {
+      "name": "a decisive verdict cannot be re-rolled: rejected",
+      "passed": true,
+      "expected": "FINISHED_WITH_ERROR (or refused at submission)",
+      "observed": "FINISHED_WITH_ERROR",
+      "section": "5. Validator screening"
+    },
+    {
+      "name": "a decisive verdict cannot be re-rolled: books unchanged",
+      "passed": true,
+      "expected": "unchanged",
+      "observed": "unchanged",
+      "section": "5. Validator screening"
+    },
+    {
+      "name": "the standing preview shows the expected outcomes",
+      "passed": true,
+      "expected": "['rewarded', 'rewarded', 'rewarded', 'duplicate_bond_refunded', 'not_upheld_bond_refunded', 'disqualified_bond_forfeited', 'not_upheld_bond_refunded', 'unrevealed_bond_forfeited']",
+      "observed": "['rewarded', 'rewarded', 'rewarded', 'duplicate_bond_refunded', 'not_upheld_bond_refunded', 'disqualified_bond_forfeited', 'not_upheld_bond_refunded', 'unrevealed_bond_forfeited']",
+      "section": "5. Validator screening"
+    },
+    {
+      "name": "the preview pays three distinct defects",
+      "passed": true,
+      "expected": "1200000000000000",
+      "observed": "1200000000000000",
+      "section": "5. Validator screening"
+    },
+    {
+      "name": "the projected errata sheet lists the three distinct upheld defects",
+      "passed": true,
+      "expected": "indexes 0,1,2 paid as offered",
+      "observed": "[(0, 400000000000000), (1, 500000000000000), (2, 300000000000000)]",
+      "section": "5. Validator screening"
+    },
+    {
+      "name": "a stranger cannot cancel a bounty that has findings: rejected",
+      "passed": true,
+      "expected": "FINISHED_WITH_ERROR (or refused at submission)",
+      "observed": "FINISHED_WITH_ERROR",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "a stranger cannot cancel a bounty that has findings: books unchanged",
+      "passed": true,
+      "expected": "unchanged",
+      "observed": "unchanged",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "finalizing a second time: rejected",
+      "passed": true,
+      "expected": "FINISHED_WITH_ERROR (or refused at submission)",
+      "observed": "FINISHED_WITH_ERROR",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "finalizing a second time: books unchanged",
+      "passed": true,
+      "expected": "unchanged",
+      "observed": "unchanged",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "both bounties finalized",
+      "passed": true,
+      "expected": "finalized, finalized",
+      "observed": "('finalized', 'finalized')",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "A paid three distinct defects",
+      "passed": true,
+      "expected": "3 rewards, 1200000000000000 wei",
+      "observed": "3 rewards, 1200000000000000 wei",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "A returned the unspent budget",
+      "passed": true,
+      "expected": "300000000000000",
+      "observed": "300000000000000",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "A forfeited exactly two bonds (foxtrot, hotel)",
+      "passed": true,
+      "expected": "200000000000000",
+      "observed": "200000000000000",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "A refunded six bonds",
+      "passed": true,
+      "expected": "600000000000000",
+      "observed": "600000000000000",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "B paid its one reward and forfeited india's two abandoned bonds",
+      "passed": true,
+      "expected": "paid 400000000000000, forfeited 200000000000000",
+      "observed": "paid 400000000000000, forfeited 200000000000000",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "india's extra findings ended as unrevealed_bond_forfeited",
+      "passed": true,
+      "expected": "['unrevealed_bond_forfeited', 'unrevealed_bond_forfeited']",
+      "observed": "['unrevealed_bond_forfeited', 'unrevealed_bond_forfeited']",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "the settled errata sheet of A lists exactly the paid defects",
+      "passed": true,
+      "expected": "[400000000000000, 500000000000000, 300000000000000]",
+      "observed": "[400000000000000, 500000000000000, 300000000000000]",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "the settled errata sheet of B lists exactly the paid defects",
+      "passed": true,
+      "expected": "[400000000000000]",
+      "observed": "[400000000000000]",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "delta is recorded as a duplicate of the first finding",
+      "passed": true,
+      "expected": "duplicate_bond_refunded of #1",
+      "observed": "duplicate_bond_refunded of #1",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "alpha outcome is rewarded",
+      "passed": true,
+      "expected": "rewarded",
+      "observed": "rewarded",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "echo outcome is not_upheld_bond_refunded",
+      "passed": true,
+      "expected": "not_upheld_bond_refunded",
+      "observed": "not_upheld_bond_refunded",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "foxtrot outcome is disqualified_bond_forfeited",
+      "passed": true,
+      "expected": "disqualified_bond_forfeited",
+      "observed": "disqualified_bond_forfeited",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "hotel outcome is unrevealed_bond_forfeited",
+      "passed": true,
+      "expected": "unrevealed_bond_forfeited",
+      "observed": "unrevealed_bond_forfeited",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "india outcome is rewarded",
+      "passed": true,
+      "expected": "rewarded",
+      "observed": "rewarded",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "alpha credit",
+      "passed": true,
+      "expected": "500000000000000",
+      "observed": "500000000000000",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "bravo credit",
+      "passed": true,
+      "expected": "600000000000000",
+      "observed": "600000000000000",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "charlie credit",
+      "passed": true,
+      "expected": "400000000000000",
+      "observed": "400000000000000",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "delta credit",
+      "passed": true,
+      "expected": "100000000000000",
+      "observed": "100000000000000",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "echo credit",
+      "passed": true,
+      "expected": "100000000000000",
+      "observed": "100000000000000",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "foxtrot credit",
+      "passed": true,
+      "expected": "0",
+      "observed": "0",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "golf credit",
+      "passed": true,
+      "expected": "100000000000000",
+      "observed": "100000000000000",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "hotel credit",
+      "passed": true,
+      "expected": "0",
+      "observed": "0",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "india credit",
+      "passed": true,
+      "expected": "500000000000000",
+      "observed": "500000000000000",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "funder credit",
+      "passed": true,
+      "expected": "1300000000000000",
+      "observed": "1300000000000000",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "ledger conserves all deposited value (change since run start)",
+      "passed": true,
+      "expected": "credits +3600000000000000, locked +0",
+      "observed": "credits +3600000000000000, locked +0",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "contract balance covers every liability",
+      "passed": true,
+      "expected": "True",
+      "observed": "True",
+      "section": "6. Finalization"
+    },
+    {
+      "name": "alpha withdraw_credit transaction succeeded",
+      "passed": true,
+      "expected": "FINISHED_WITH_RETURN",
+      "observed": "FINISHED_WITH_RETURN",
+      "section": "7. Native GEN withdrawals"
+    },
+    {
+      "name": "alpha ledger credit cleared",
+      "passed": true,
+      "expected": "0",
+      "observed": "0",
+      "section": "7. Native GEN withdrawals"
+    },
+    {
+      "name": "alpha balance rose by 500000000000000 wei net of the transaction fee",
+      "passed": true,
+      "expected": "net fee between 0 and 100000000000010352 wei",
+      "observed": "net gain 373694999999177, net fee 126305000000823",
+      "section": "7. Native GEN withdrawals"
+    },
+    {
+      "name": "bravo withdraw_credit transaction succeeded",
+      "passed": true,
+      "expected": "FINISHED_WITH_RETURN",
+      "observed": "FINISHED_WITH_RETURN",
+      "section": "7. Native GEN withdrawals"
+    },
+    {
+      "name": "bravo ledger credit cleared",
+      "passed": true,
+      "expected": "0",
+      "observed": "0",
+      "section": "7. Native GEN withdrawals"
+    },
+    {
+      "name": "bravo balance rose by 600000000000000 wei net of the transaction fee",
+      "passed": true,
+      "expected": "net fee between 0 and 100000000000010352 wei",
+      "observed": "net gain 473694999998942, net fee 126305000001058",
+      "section": "7. Native GEN withdrawals"
+    },
+    {
+      "name": "charlie withdraw_credit transaction succeeded",
+      "passed": true,
+      "expected": "FINISHED_WITH_RETURN",
+      "observed": "FINISHED_WITH_RETURN",
+      "section": "7. Native GEN withdrawals"
+    },
+    {
+      "name": "charlie ledger credit cleared",
+      "passed": true,
+      "expected": "0",
+      "observed": "0",
+      "section": "7. Native GEN withdrawals"
+    },
+    {
+      "name": "charlie balance rose by 400000000000000 wei net of the transaction fee",
+      "passed": true,
+      "expected": "net fee between 0 and 100000000000010352 wei",
+      "observed": "net gain 273694999999177, net fee 126305000000823",
+      "section": "7. Native GEN withdrawals"
+    },
+    {
+      "name": "delta withdraw_credit transaction succeeded",
+      "passed": true,
+      "expected": "FINISHED_WITH_RETURN",
+      "observed": "FINISHED_WITH_RETURN",
+      "section": "7. Native GEN withdrawals"
+    },
+    {
+      "name": "delta ledger credit cleared",
+      "passed": true,
+      "expected": "0",
+      "observed": "0",
+      "section": "7. Native GEN withdrawals"
+    },
+    {
+      "name": "delta balance rose by 100000000000000 wei net of the transaction fee",
+      "passed": true,
+      "expected": "net fee between 0 and 100000000000010352 wei",
+      "observed": "net gain -26305000001058, net fee 126305000001058",
+      "section": "7. Native GEN withdrawals"
+    },
+    {
+      "name": "echo withdraw_credit transaction succeeded",
+      "passed": true,
+      "expected": "FINISHED_WITH_RETURN",
+      "observed": "FINISHED_WITH_RETURN",
+      "section": "7. Native GEN withdrawals"
+    },
+    {
+      "name": "echo ledger credit cleared",
+      "passed": true,
+      "expected": "0",
+      "observed": "0",
+      "section": "7. Native GEN withdrawals"
+    },
+    {
+      "name": "echo balance rose by 100000000000000 wei net of the transaction fee",
+      "passed": true,
+      "expected": "net fee between 0 and 100000000000010352 wei",
+      "observed": "net gain -26305000000823, net fee 126305000000823",
+      "section": "7. Native GEN withdrawals"
+    },
+    {
+      "name": "golf withdraw_credit transaction succeeded",
+      "passed": true,
+      "expected": "FINISHED_WITH_RETURN",
+      "observed": "FINISHED_WITH_RETURN",
+      "section": "7. Native GEN withdrawals"
+    },
+    {
+      "name": "golf ledger credit cleared",
+      "passed": true,
+      "expected": "0",
+      "observed": "0",
+      "section": "7. Native GEN withdrawals"
+    },
+    {
+      "name": "golf balance rose by 100000000000000 wei net of the transaction fee",
+      "passed": true,
+      "expected": "net fee between 0 and 100000000000010352 wei",
+      "observed": "net gain -126305000000823, net fee 226305000000823",
+      "section": "7. Native GEN withdrawals"
+    },
+    {
+      "name": "india withdraw_credit transaction succeeded",
+      "passed": true,
+      "expected": "FINISHED_WITH_RETURN",
+      "observed": "FINISHED_WITH_RETURN",
+      "section": "7. Native GEN withdrawals"
+    },
+    {
+      "name": "india ledger credit cleared",
+      "passed": true,
+      "expected": "0",
+      "observed": "0",
+      "section": "7. Native GEN withdrawals"
+    },
+    {
+      "name": "india balance rose by 500000000000000 wei net of the transaction fee",
+      "passed": true,
+      "expected": "net fee between 0 and 100000000000010352 wei",
+      "observed": "net gain 373694999999177, net fee 126305000000823",
+      "section": "7. Native GEN withdrawals"
+    },
+    {
+      "name": "funder withdraw_credit transaction succeeded",
+      "passed": true,
+      "expected": "FINISHED_WITH_RETURN",
+      "observed": "FINISHED_WITH_RETURN",
+      "section": "7. Native GEN withdrawals"
+    },
+    {
+      "name": "funder ledger credit cleared",
+      "passed": true,
+      "expected": "0",
+      "observed": "0",
+      "section": "7. Native GEN withdrawals"
+    },
+    {
+      "name": "funder balance rose by 1300000000000000 wei net of the transaction fee",
+      "passed": true,
+      "expected": "net fee between 0 and 100000000000010352 wei",
+      "observed": "net gain 1173694999999177, net fee 126305000000823",
+      "section": "7. Native GEN withdrawals"
+    },
+    {
+      "name": "foxtrot has nothing to withdraw: rejected",
+      "passed": true,
+      "expected": "FINISHED_WITH_ERROR (or refused at submission)",
+      "observed": "FINISHED_WITH_ERROR",
+      "section": "7. Native GEN withdrawals"
+    },
+    {
+      "name": "foxtrot has nothing to withdraw: books unchanged",
+      "passed": true,
+      "expected": "unchanged",
+      "observed": "unchanged",
+      "section": "7. Native GEN withdrawals"
+    },
+    {
+      "name": "hotel has nothing to withdraw: rejected",
+      "passed": true,
+      "expected": "FINISHED_WITH_ERROR (or refused at submission)",
+      "observed": "FINISHED_WITH_ERROR",
+      "section": "7. Native GEN withdrawals"
+    },
+    {
+      "name": "hotel has nothing to withdraw: books unchanged",
+      "passed": true,
+      "expected": "unchanged",
+      "observed": "unchanged",
+      "section": "7. Native GEN withdrawals"
+    },
+    {
+      "name": "no liabilities remain from this run (change since run start)",
+      "passed": true,
+      "expected": "0",
+      "observed": "0",
+      "section": "7. Native GEN withdrawals"
+    }
+  ],
+  "transactions": [
+    {
+      "label": "publisher deposits both budgets",
+      "account": "0x8D245dE902a87204E4ADe22964B00946CE5Bd9f1",
+      "function": "deposit_credit",
+      "tx_hash": "0xaa9d0b597de8800e4960de31f8b6161e5ef3b375bf9081700b795e14700dbe25",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 41.5,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378498000010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0xaa9d0b597de8800e4960de31f8b6161e5ef3b375bf9081700b795e14700dbe25"
+    },
+    {
+      "label": "open bounty A (document online)",
+      "account": "0x8D245dE902a87204E4ADe22964B00946CE5Bd9f1",
+      "function": "open_bounty",
+      "tx_hash": "0x430ebd75aa4436b12144abab342b11773f09ddb4d103e77e7fc11d2d657713ba",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 38.0,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378530400010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x430ebd75aa4436b12144abab342b11773f09ddb4d103e77e7fc11d2d657713ba"
+    },
+    {
+      "label": "open bounty B (primary URL is dead)",
+      "account": "0x8D245dE902a87204E4ADe22964B00946CE5Bd9f1",
+      "function": "open_bounty",
+      "tx_hash": "0x23721551ee8bf755246658e4c314b89699ce062cfd01602b59e55321facf8105",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 37.2,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378531600010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x23721551ee8bf755246658e4c314b89699ce062cfd01602b59e55321facf8105"
+    },
+    {
+      "label": "alpha deposits bond",
+      "account": "0xE4c83FFdE38542F9c9E7E0F7525b1abb398A9AeF",
+      "function": "deposit_credit",
+      "tx_hash": "0xe85ce4d3672276a037bf8691114db6e102aed30d09b146e91a7b32ae78b5c43d",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 43.6,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378498000010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0xe85ce4d3672276a037bf8691114db6e102aed30d09b146e91a7b32ae78b5c43d"
+    },
+    {
+      "label": "alpha commits a sealed finding",
+      "account": "0xE4c83FFdE38542F9c9E7E0F7525b1abb398A9AeF",
+      "function": "commit_finding",
+      "tx_hash": "0xdefa6cb16c40a190b873c1a87c4a34c292f7e518b1cd30bbfd6fdda93738bb8a",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 44.8,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378520800010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0xdefa6cb16c40a190b873c1a87c4a34c292f7e518b1cd30bbfd6fdda93738bb8a"
+    },
+    {
+      "label": "bravo deposits bond",
+      "account": "0x935E823CA6F422F055aBc5EB59122fc3b8750E33",
+      "function": "deposit_credit",
+      "tx_hash": "0x0c78ee0f019ab1ae3f01ade10803bf7b2be11fffe5d8dba6bb8363ee7906784b",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 41.3,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378500400010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x0c78ee0f019ab1ae3f01ade10803bf7b2be11fffe5d8dba6bb8363ee7906784b"
+    },
+    {
+      "label": "bravo commits a sealed finding",
+      "account": "0x935E823CA6F422F055aBc5EB59122fc3b8750E33",
+      "function": "commit_finding",
+      "tx_hash": "0xd397250942ce4f70f9afaea8d637edb2874263b11d3349ceeda3fd3e9292faac",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 39.9,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378522000010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0xd397250942ce4f70f9afaea8d637edb2874263b11d3349ceeda3fd3e9292faac"
+    },
+    {
+      "label": "charlie deposits bond",
+      "account": "0xe06F5799f8D29bDfE5bec204E00E861AF803a6d5",
+      "function": "deposit_credit",
+      "tx_hash": "0x628304ff306172bf361bf97a5fc3024e95299458c2e0d77509fbec880d11e300",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 39.1,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378499200010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x628304ff306172bf361bf97a5fc3024e95299458c2e0d77509fbec880d11e300"
+    },
+    {
+      "label": "charlie commits a sealed finding",
+      "account": "0xe06F5799f8D29bDfE5bec204E00E861AF803a6d5",
+      "function": "commit_finding",
+      "tx_hash": "0xf02e4f5b1dc1f984ec5d0ed69bcfb0c06d6c0b3302a655dc0e6a0addda2bd8f5",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 37.9,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378524400010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0xf02e4f5b1dc1f984ec5d0ed69bcfb0c06d6c0b3302a655dc0e6a0addda2bd8f5"
+    },
+    {
+      "label": "delta deposits bond",
+      "account": "0x7af8a021339450f7b25A37513A5BC39D16b5Fd8b",
+      "function": "deposit_credit",
+      "tx_hash": "0x62d8d73c5195b3460464b86d2d7f52f50436f76ad6927cd55161947590578298",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 39.8,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378501600010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x62d8d73c5195b3460464b86d2d7f52f50436f76ad6927cd55161947590578298"
+    },
+    {
+      "label": "delta commits a sealed finding",
+      "account": "0x7af8a021339450f7b25A37513A5BC39D16b5Fd8b",
+      "function": "commit_finding",
+      "tx_hash": "0x77dfe21408cd061c5bba9dc6dcc0ff793c0a5923b7434dbcb73ae4c0811efbd7",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 38.2,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378522000010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x77dfe21408cd061c5bba9dc6dcc0ff793c0a5923b7434dbcb73ae4c0811efbd7"
+    },
+    {
+      "label": "echo deposits bond",
+      "account": "0x61838f25cC43605D4196F40b976bfB3d71A96478",
+      "function": "deposit_credit",
+      "tx_hash": "0xcacf9a25a946a8258549b8b5035e028b037e5b0299f5c74c8f4db22e444fc3c1",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 42.2,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378502800010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0xcacf9a25a946a8258549b8b5035e028b037e5b0299f5c74c8f4db22e444fc3c1"
+    },
+    {
+      "label": "echo commits a sealed finding",
+      "account": "0x61838f25cC43605D4196F40b976bfB3d71A96478",
+      "function": "commit_finding",
+      "tx_hash": "0x362c403e1b2b757f5782be2b40713716fd398ccfafdba462e1ca7564032decd9",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 39.3,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378523200010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x362c403e1b2b757f5782be2b40713716fd398ccfafdba462e1ca7564032decd9"
+    },
+    {
+      "label": "foxtrot deposits bond",
+      "account": "0x56f6b755A4314e13603D7762E52B2f3B3Bd1FF08",
+      "function": "deposit_credit",
+      "tx_hash": "0x73f00c7b77ad607677d0836128280717b9b3c45104ca6e8bb472cb063d01b55c",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 38.7,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378500400010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x73f00c7b77ad607677d0836128280717b9b3c45104ca6e8bb472cb063d01b55c"
+    },
+    {
+      "label": "foxtrot commits a sealed finding",
+      "account": "0x56f6b755A4314e13603D7762E52B2f3B3Bd1FF08",
+      "function": "commit_finding",
+      "tx_hash": "0x270fb09ed473245801d7196468141efbea982f2f280d123a7fb560d4d8782191",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 37.0,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378523200010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x270fb09ed473245801d7196468141efbea982f2f280d123a7fb560d4d8782191"
+    },
+    {
+      "label": "golf deposits bond",
+      "account": "0x7675508Fae74fe69169441D9Df5c990255b34A69",
+      "function": "deposit_credit",
+      "tx_hash": "0x33d249ab02fca0b017be6750864a22ee6fd75b818b3459ca0b9e185c81731cee",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 41.8,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378500400010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x33d249ab02fca0b017be6750864a22ee6fd75b818b3459ca0b9e185c81731cee"
+    },
+    {
+      "label": "golf commits a sealed finding",
+      "account": "0x7675508Fae74fe69169441D9Df5c990255b34A69",
+      "function": "commit_finding",
+      "tx_hash": "0x30018f1e8fa696edec1de709aca4924c615b70d70cee37cbf1142a463bfee8c2",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 39.1,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378523200010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x30018f1e8fa696edec1de709aca4924c615b70d70cee37cbf1142a463bfee8c2"
+    },
+    {
+      "label": "hotel deposits bond",
+      "account": "0x380d22Ea3C2Bee515caCd4CF15C9757B72A75541",
+      "function": "deposit_credit",
+      "tx_hash": "0xdb9cbc3fec78d5002d0428749857fb72cfca03dd8657df60ad563d050269164f",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 38.5,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378505200010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0xdb9cbc3fec78d5002d0428749857fb72cfca03dd8657df60ad563d050269164f"
+    },
+    {
+      "label": "hotel commits a sealed finding",
+      "account": "0x380d22Ea3C2Bee515caCd4CF15C9757B72A75541",
+      "function": "commit_finding",
+      "tx_hash": "0x8338e64fa8bbe4660d711365430cc3dde9317050c64fa502d54c3900b99abd51",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 42.3,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378523200010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x8338e64fa8bbe4660d711365430cc3dde9317050c64fa502d54c3900b99abd51"
+    },
+    {
+      "label": "india deposits bond",
+      "account": "0x45E35e3B4B23CA329Fca4003D297F5109E3312D2",
+      "function": "deposit_credit",
+      "tx_hash": "0xae1ab42f5013efeb6a4856902796b4c9f741cfbe66126a27327f73db3598318d",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 43.0,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378501600010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0xae1ab42f5013efeb6a4856902796b4c9f741cfbe66126a27327f73db3598318d"
+    },
+    {
+      "label": "india commits a sealed finding",
+      "account": "0x45E35e3B4B23CA329Fca4003D297F5109E3312D2",
+      "function": "commit_finding",
+      "tx_hash": "0xd783135ac5ca031b00f4e2b2694685b60db9b89fa90a3704e8852144c9d76860",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 41.4,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378523200010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0xd783135ac5ca031b00f4e2b2694685b60db9b89fa90a3704e8852144c9d76860"
+    },
+    {
+      "label": "india deposits bond for extra #1",
+      "account": "0x45E35e3B4B23CA329Fca4003D297F5109E3312D2",
+      "function": "deposit_credit",
+      "tx_hash": "0x1c4533caf081d9a1b9c5dca7245c160539076455b2e543644edc63d91daa2601",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 37.1,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378494400010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x1c4533caf081d9a1b9c5dca7245c160539076455b2e543644edc63d91daa2601"
+    },
+    {
+      "label": "india seals extra finding #1 (never revealed)",
+      "account": "0x45E35e3B4B23CA329Fca4003D297F5109E3312D2",
+      "function": "commit_finding",
+      "tx_hash": "0x9486c22100a03a0aba944eca966f808af6d7b507604a40609af461526df45836",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 39.0,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378524400010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x9486c22100a03a0aba944eca966f808af6d7b507604a40609af461526df45836"
+    },
+    {
+      "label": "india deposits bond for extra #2",
+      "account": "0x45E35e3B4B23CA329Fca4003D297F5109E3312D2",
+      "function": "deposit_credit",
+      "tx_hash": "0x899e161b01262a7999387068b2627a58b59c8b43eed7644f854ddc30f7a5db62",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 38.5,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378494400010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x899e161b01262a7999387068b2627a58b59c8b43eed7644f854ddc30f7a5db62"
+    },
+    {
+      "label": "india seals extra finding #2 (never revealed)",
+      "account": "0x45E35e3B4B23CA329Fca4003D297F5109E3312D2",
+      "function": "commit_finding",
+      "tx_hash": "0xb03cd96fd3ffb4744cfed8e2ab644e0a560b63277fdae73322a03f3e0b6f4e17",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 38.1,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378524400010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0xb03cd96fd3ffb4744cfed8e2ab644e0a560b63277fdae73322a03f3e0b6f4e17"
+    },
+    {
+      "label": "publisher cannot file on its own bounty",
+      "account": "0x8D245dE902a87204E4ADe22964B00946CE5Bd9f1",
+      "function": "commit_finding",
+      "tx_hash": "0x1c6b6d59b50bd7347e841616183469bc6e8066192fa1a4222ca460bab561c56b",
+      "status": "",
+      "result": "FINISHED_WITH_ERROR",
+      "seconds": 41.9,
+      "expected": "revert",
+      "note": "consensus=MAJORITY_AGREE; leader=ERROR, top=-",
+      "fee_wei": 100000000000010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x1c6b6d59b50bd7347e841616183469bc6e8066192fa1a4222ca460bab561c56b"
+    },
+    {
+      "label": "the same commitment cannot be sealed twice",
+      "account": "0xE4c83FFdE38542F9c9E7E0F7525b1abb398A9AeF",
+      "function": "commit_finding",
+      "tx_hash": "0xc11430e273f4229fc64c2c2c91e97dfad195274e246ae10747878199286fb0ae",
+      "status": "",
+      "result": "FINISHED_WITH_ERROR",
+      "seconds": 46.1,
+      "expected": "revert",
+      "note": "consensus=MAJORITY_AGREE; leader=ERROR, top=-",
+      "fee_wei": 100000000000010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0xc11430e273f4229fc64c2c2c91e97dfad195274e246ae10747878199286fb0ae"
+    },
+    {
+      "label": "a fourth finding from one account exceeds the per-account cap",
+      "account": "0x45E35e3B4B23CA329Fca4003D297F5109E3312D2",
+      "function": "commit_finding",
+      "tx_hash": "0x665a57f66633de69b3ab18e4330424d8d27a42833efbba3c68e88e39763265f4",
+      "status": "",
+      "result": "FINISHED_WITH_ERROR",
+      "seconds": 41.1,
+      "expected": "revert",
+      "note": "consensus=MAJORITY_AGREE; leader=ERROR, top=-",
+      "fee_wei": 100000000000010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x665a57f66633de69b3ab18e4330424d8d27a42833efbba3c68e88e39763265f4"
+    },
+    {
+      "label": "early reveal before the sealing deadline",
+      "account": "0xE4c83FFdE38542F9c9E7E0F7525b1abb398A9AeF",
+      "function": "reveal_finding",
+      "tx_hash": "0xfb8f7763df9943c8162e0d0d8d018145338cf2fa5f6c5338143b2f1bd8093723",
+      "status": "",
+      "result": "FINISHED_WITH_ERROR",
+      "seconds": 43.6,
+      "expected": "revert",
+      "note": "consensus=MAJORITY_AGREE; leader=ERROR, top=-",
+      "fee_wei": 100000000000010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0xfb8f7763df9943c8162e0d0d8d018145338cf2fa5f6c5338143b2f1bd8093723"
+    },
+    {
+      "label": "stranger cannot request a review",
+      "account": "0xa57B8EA7aB9Cf4Dcc4497df9DebF5ee769908887",
+      "function": "review_finding",
+      "tx_hash": "0x66cf92b72cb1d9878a8f0bdbb9710308007527157dc150af295620b666aee9b4",
+      "status": "",
+      "result": "FINISHED_WITH_ERROR",
+      "seconds": 44.3,
+      "expected": "revert",
+      "note": "consensus=MAJORITY_AGREE; leader=ERROR, top=-",
+      "fee_wei": 100000000000010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x66cf92b72cb1d9878a8f0bdbb9710308007527157dc150af295620b666aee9b4"
+    },
+    {
+      "label": "a finder cannot reveal someone else's sealed finding",
+      "account": "0x935E823CA6F422F055aBc5EB59122fc3b8750E33",
+      "function": "reveal_finding",
+      "tx_hash": "0xc66affd347a14a7642ca5f02d9c910e96be827f0f4946e8696f5e4597a56fc10",
+      "status": "",
+      "result": "FINISHED_WITH_ERROR",
+      "seconds": 44.6,
+      "expected": "revert",
+      "note": "consensus=MAJORITY_AGREE; leader=ERROR, top=-",
+      "fee_wei": 100000000000010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0xc66affd347a14a7642ca5f02d9c910e96be827f0f4946e8696f5e4597a56fc10"
+    },
+    {
+      "label": "late commitment after the deadline",
+      "account": "0xa57B8EA7aB9Cf4Dcc4497df9DebF5ee769908887",
+      "function": "commit_finding",
+      "tx_hash": "0x583e78c6cce487ca9564c4eaa44fb55aafbc0018cb8f62a620678aa4c12be6af",
+      "status": "",
+      "result": "FINISHED_WITH_ERROR",
+      "seconds": 44.4,
+      "expected": "revert",
+      "note": "consensus=MAJORITY_AGREE; leader=ERROR, top=-",
+      "fee_wei": 100000000000010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x583e78c6cce487ca9564c4eaa44fb55aafbc0018cb8f62a620678aa4c12be6af"
+    },
+    {
+      "label": "reveal with a wrong salt",
+      "account": "0x935E823CA6F422F055aBc5EB59122fc3b8750E33",
+      "function": "reveal_finding",
+      "tx_hash": "0x5a5f9d2571996bd41febd8f29a941d083cbc42b75cc34e7609209eca24b57c06",
+      "status": "",
+      "result": "FINISHED_WITH_ERROR",
+      "seconds": 43.1,
+      "expected": "revert",
+      "note": "consensus=MAJORITY_AGREE; leader=ERROR, top=-",
+      "fee_wei": 100000000000010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x5a5f9d2571996bd41febd8f29a941d083cbc42b75cc34e7609209eca24b57c06"
+    },
+    {
+      "label": "reveal with a changed quote",
+      "account": "0x935E823CA6F422F055aBc5EB59122fc3b8750E33",
+      "function": "reveal_finding",
+      "tx_hash": "0xc15e7d9755163265cf0c2ff2826c00d482ee5e4f3e5778b54f9ce8e77b41d480",
+      "status": "",
+      "result": "FINISHED_WITH_ERROR",
+      "seconds": 47.0,
+      "expected": "revert",
+      "note": "consensus=MAJORITY_AGREE; leader=ERROR, top=-",
+      "fee_wei": 100000000000010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0xc15e7d9755163265cf0c2ff2826c00d482ee5e4f3e5778b54f9ce8e77b41d480"
+    },
+    {
+      "label": "reveal with a changed defect kind",
+      "account": "0x935E823CA6F422F055aBc5EB59122fc3b8750E33",
+      "function": "reveal_finding",
+      "tx_hash": "0xcfd33d105e94786294ffbe41cbe25440debe2dbf7bbe714fec7554277728e875",
+      "status": "",
+      "result": "FINISHED_WITH_ERROR",
+      "seconds": 44.4,
+      "expected": "revert",
+      "note": "consensus=MAJORITY_AGREE; leader=ERROR, top=-",
+      "fee_wei": 100000000000010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0xcfd33d105e94786294ffbe41cbe25440debe2dbf7bbe714fec7554277728e875"
+    },
+    {
+      "label": "alpha reveals",
+      "account": "0xE4c83FFdE38542F9c9E7E0F7525b1abb398A9AeF",
+      "function": "reveal_finding",
+      "tx_hash": "0xc6b68f61c4e627ddd1677a4416bd729ee7741bb48a775d42626819dcb7da32f4",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 40.5,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378500400010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0xc6b68f61c4e627ddd1677a4416bd729ee7741bb48a775d42626819dcb7da32f4"
+    },
+    {
+      "label": "bravo reveals",
+      "account": "0x935E823CA6F422F055aBc5EB59122fc3b8750E33",
+      "function": "reveal_finding",
+      "tx_hash": "0x281dba23ec3e94ecc8a747b32fca8794ffb6c8880feac845d6c56d4c55d68b44",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 39.4,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378501600010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x281dba23ec3e94ecc8a747b32fca8794ffb6c8880feac845d6c56d4c55d68b44"
+    },
+    {
+      "label": "charlie reveals",
+      "account": "0xe06F5799f8D29bDfE5bec204E00E861AF803a6d5",
+      "function": "reveal_finding",
+      "tx_hash": "0xd37e7411a47116ba688986dde8a141d56005f2bd83895a7ad2d2ce0c7b77a112",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 39.9,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378500400010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0xd37e7411a47116ba688986dde8a141d56005f2bd83895a7ad2d2ce0c7b77a112"
+    },
+    {
+      "label": "delta reveals",
+      "account": "0x7af8a021339450f7b25A37513A5BC39D16b5Fd8b",
+      "function": "reveal_finding",
+      "tx_hash": "0x5ef8e3d75b4a87fa89163314b73d8bf04e39faa730f881123acae43c3274f0fc",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 44.2,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378501600010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x5ef8e3d75b4a87fa89163314b73d8bf04e39faa730f881123acae43c3274f0fc"
+    },
+    {
+      "label": "echo reveals",
+      "account": "0x61838f25cC43605D4196F40b976bfB3d71A96478",
+      "function": "reveal_finding",
+      "tx_hash": "0x0bab50af8044b1caf425910e8ef8af25e81c595a3234383df798c3e09f19d1c3",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 39.3,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378501600010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x0bab50af8044b1caf425910e8ef8af25e81c595a3234383df798c3e09f19d1c3"
+    },
+    {
+      "label": "foxtrot reveals",
+      "account": "0x56f6b755A4314e13603D7762E52B2f3B3Bd1FF08",
+      "function": "reveal_finding",
+      "tx_hash": "0xa6ffe30ff463771f58c95c19943c5db085b98a02470e72ef8ea220036fb4c06b",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 38.5,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378500400010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0xa6ffe30ff463771f58c95c19943c5db085b98a02470e72ef8ea220036fb4c06b"
+    },
+    {
+      "label": "golf reveals",
+      "account": "0x7675508Fae74fe69169441D9Df5c990255b34A69",
+      "function": "reveal_finding",
+      "tx_hash": "0xbcf3fc28738137d354dc9093243aa5529ce02ecd7e93f5ca0e82d57c7d9e64d1",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 40.0,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378500400010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0xbcf3fc28738137d354dc9093243aa5529ce02ecd7e93f5ca0e82d57c7d9e64d1"
+    },
+    {
+      "label": "india reveals",
+      "account": "0x45E35e3B4B23CA329Fca4003D297F5109E3312D2",
+      "function": "reveal_finding",
+      "tx_hash": "0xe3d608802a5d810e3294f2c860254cd9b712abdf587612259fe45d679a2c4f40",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 39.8,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378506400010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0xe3d608802a5d810e3294f2c860254cd9b712abdf587612259fe45d679a2c4f40"
+    },
+    {
+      "label": "screen alpha (try 1)",
+      "account": "0x8D245dE902a87204E4ADe22964B00946CE5Bd9f1",
+      "function": "review_finding",
+      "tx_hash": "0xc5533b7c8cd43a4505d1b2886d0bae2fe17a8dc8212ff83e4e4173098c8f5db2",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 69.1,
+      "expected": "retryable",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 381554400010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0xc5533b7c8cd43a4505d1b2886d0bae2fe17a8dc8212ff83e4e4173098c8f5db2"
+    },
+    {
+      "label": "screen bravo (try 1)",
+      "account": "0x8D245dE902a87204E4ADe22964B00946CE5Bd9f1",
+      "function": "review_finding",
+      "tx_hash": "0x12664db49e7021391a6c1a6188ae3ff38a0cf2f65bddb5a685eb211ea697f37d",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 57.9,
+      "expected": "retryable",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 382534800010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x12664db49e7021391a6c1a6188ae3ff38a0cf2f65bddb5a685eb211ea697f37d"
+    },
+    {
+      "label": "screen charlie (try 1)",
+      "account": "0x8D245dE902a87204E4ADe22964B00946CE5Bd9f1",
+      "function": "review_finding",
+      "tx_hash": "0x5e350dac860f094c94d92a8b996d27c284aefd069198470bc4e2b905690e018f",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 58.7,
+      "expected": "retryable",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 382591200010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x5e350dac860f094c94d92a8b996d27c284aefd069198470bc4e2b905690e018f"
+    },
+    {
+      "label": "screen delta (try 1)",
+      "account": "0x8D245dE902a87204E4ADe22964B00946CE5Bd9f1",
+      "function": "review_finding",
+      "tx_hash": "0x19279cee7e9c8c061af52eb7260c857fce1f92d205bf394cd2324eba17cec7b9",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 53.4,
+      "expected": "retryable",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 381399600010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x19279cee7e9c8c061af52eb7260c857fce1f92d205bf394cd2324eba17cec7b9"
+    },
+    {
+      "label": "screen echo (try 1)",
+      "account": "0x8D245dE902a87204E4ADe22964B00946CE5Bd9f1",
+      "function": "review_finding",
+      "tx_hash": "0x81ac0dcfa2f0a57dd4a958424a2b760809dee183226a0c10f3a9a16016e85706",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 55.5,
+      "expected": "retryable",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 381495600010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x81ac0dcfa2f0a57dd4a958424a2b760809dee183226a0c10f3a9a16016e85706"
+    },
+    {
+      "label": "screen foxtrot (try 1)",
+      "account": "0x8D245dE902a87204E4ADe22964B00946CE5Bd9f1",
+      "function": "review_finding",
+      "tx_hash": "0x280a2fdbd9cfc4f81e13a59299198929c3c1bb317e3c5ee15d4060a8e1d67b7d",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 42.8,
+      "expected": "retryable",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 379514400010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x280a2fdbd9cfc4f81e13a59299198929c3c1bb317e3c5ee15d4060a8e1d67b7d"
+    },
+    {
+      "label": "screen golf (try 1)",
+      "account": "0x8D245dE902a87204E4ADe22964B00946CE5Bd9f1",
+      "function": "review_finding",
+      "tx_hash": "0x423661a679c58f6c967153bc167605ccf3cf031bac50db9c455d54ce647ec411",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 48.8,
+      "expected": "retryable",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 382266000010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x423661a679c58f6c967153bc167605ccf3cf031bac50db9c455d54ce647ec411"
+    },
+    {
+      "label": "screen india (try 1)",
+      "account": "0x8D245dE902a87204E4ADe22964B00946CE5Bd9f1",
+      "function": "review_finding",
+      "tx_hash": "0x8e773db156c3ad8399782d554d8f8605a18f47a8ad204295a55c6ef34ffe0ebd",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 49.0,
+      "expected": "retryable",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 382208400010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x8e773db156c3ad8399782d554d8f8605a18f47a8ad204295a55c6ef34ffe0ebd"
+    },
+    {
+      "label": "a decisive verdict cannot be re-rolled",
+      "account": "0x8D245dE902a87204E4ADe22964B00946CE5Bd9f1",
+      "function": "review_finding",
+      "tx_hash": "0x65dfc71364137241069dae792a689fda04d03305e92836debd3a90c691427b04",
+      "status": "",
+      "result": "FINISHED_WITH_ERROR",
+      "seconds": 53.9,
+      "expected": "revert",
+      "note": "consensus=MAJORITY_AGREE; leader=ERROR, top=-",
+      "fee_wei": 100000000000010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x65dfc71364137241069dae792a689fda04d03305e92836debd3a90c691427b04"
+    },
+    {
+      "label": "a stranger cannot cancel a bounty that has findings",
+      "account": "0xa57B8EA7aB9Cf4Dcc4497df9DebF5ee769908887",
+      "function": "cancel_bounty",
+      "tx_hash": "0xd34fe3e19147f91b97421b6dca38576243c91aaeff77eced4470296f41007aa1",
+      "status": "",
+      "result": "FINISHED_WITH_ERROR",
+      "seconds": 46.0,
+      "expected": "revert",
+      "note": "consensus=MAJORITY_AGREE; leader=ERROR, top=-",
+      "fee_wei": 100000000000010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0xd34fe3e19147f91b97421b6dca38576243c91aaeff77eced4470296f41007aa1"
+    },
+    {
+      "label": "stranger finalizes bounty A (permissionless)",
+      "account": "0xa57B8EA7aB9Cf4Dcc4497df9DebF5ee769908887",
+      "function": "finalize_bounty",
+      "tx_hash": "0xf347a63e3bb9998d961ee8068b7a69ea22184f500cd46be1da4c3ee6de29089a",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 52.5,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378576000010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0xf347a63e3bb9998d961ee8068b7a69ea22184f500cd46be1da4c3ee6de29089a"
+    },
+    {
+      "label": "stranger finalizes bounty B (permissionless)",
+      "account": "0xa57B8EA7aB9Cf4Dcc4497df9DebF5ee769908887",
+      "function": "finalize_bounty",
+      "tx_hash": "0x045b9a5c426c78cc70460713eed70d7d0e4ebdf69210cc22390ec90d26ec32c6",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 59.4,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 378531600010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x045b9a5c426c78cc70460713eed70d7d0e4ebdf69210cc22390ec90d26ec32c6"
+    },
+    {
+      "label": "finalizing a second time",
+      "account": "0x8D245dE902a87204E4ADe22964B00946CE5Bd9f1",
+      "function": "finalize_bounty",
+      "tx_hash": "0x2dd2629715eccc545e147e0cabc5210a904ab962397f798d8d6693e319543e56",
+      "status": "",
+      "result": "FINISHED_WITH_ERROR",
+      "seconds": 45.8,
+      "expected": "revert",
+      "note": "consensus=MAJORITY_AGREE; leader=ERROR, top=-",
+      "fee_wei": 100000000000010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x2dd2629715eccc545e147e0cabc5210a904ab962397f798d8d6693e319543e56"
+    },
+    {
+      "label": "alpha withdraws credit",
+      "account": "0xE4c83FFdE38542F9c9E7E0F7525b1abb398A9AeF",
+      "function": "withdraw_credit",
+      "tx_hash": "0x9ac7dd9814d7a3d708a0447ea8c8d77bde75809a8ebf2d07a4ebcfd079cf5b84",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 61.7,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 100000000000010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x9ac7dd9814d7a3d708a0447ea8c8d77bde75809a8ebf2d07a4ebcfd079cf5b84"
+    },
+    {
+      "label": "bravo withdraws credit",
+      "account": "0x935E823CA6F422F055aBc5EB59122fc3b8750E33",
+      "function": "withdraw_credit",
+      "tx_hash": "0x33d03716e1c2d751480e91fa5dfd8f694950dc943611a7be87d3c116e7a5fe74",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 47.8,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 100000000000010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x33d03716e1c2d751480e91fa5dfd8f694950dc943611a7be87d3c116e7a5fe74"
+    },
+    {
+      "label": "charlie withdraws credit",
+      "account": "0xe06F5799f8D29bDfE5bec204E00E861AF803a6d5",
+      "function": "withdraw_credit",
+      "tx_hash": "0x2e1aba80a31d146c5543fc50cfd104e1a739d374c4fe10d020029ae59f3addc4",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 61.8,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 100000000000010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x2e1aba80a31d146c5543fc50cfd104e1a739d374c4fe10d020029ae59f3addc4"
+    },
+    {
+      "label": "delta withdraws credit",
+      "account": "0x7af8a021339450f7b25A37513A5BC39D16b5Fd8b",
+      "function": "withdraw_credit",
+      "tx_hash": "0x030c7c70d80227a352a09a7a3385b78c53f8aaf8d6f9ff99a55cd092b70f348c",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 43.4,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 100000000000010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x030c7c70d80227a352a09a7a3385b78c53f8aaf8d6f9ff99a55cd092b70f348c"
+    },
+    {
+      "label": "echo withdraws credit",
+      "account": "0x61838f25cC43605D4196F40b976bfB3d71A96478",
+      "function": "withdraw_credit",
+      "tx_hash": "0x7a4f187422042fbb296077488986dc5e049bebe8fdcd68dd7ef442bdde8fba44",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 71.8,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 100000000000010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x7a4f187422042fbb296077488986dc5e049bebe8fdcd68dd7ef442bdde8fba44"
+    },
+    {
+      "label": "golf withdraws credit",
+      "account": "0x7675508Fae74fe69169441D9Df5c990255b34A69",
+      "function": "withdraw_credit",
+      "tx_hash": "0x8e043d01c1aa9fad7984aaf4d1a548049f4064e62b85e7647d2c4be302b01cf0",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 60.9,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 100000000000010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x8e043d01c1aa9fad7984aaf4d1a548049f4064e62b85e7647d2c4be302b01cf0"
+    },
+    {
+      "label": "india withdraws credit",
+      "account": "0x45E35e3B4B23CA329Fca4003D297F5109E3312D2",
+      "function": "withdraw_credit",
+      "tx_hash": "0xbc34e3317507167612c51ee87916feea22bd0075af5473084ea4cb59ca9ca28b",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 45.2,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 100000000000010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0xbc34e3317507167612c51ee87916feea22bd0075af5473084ea4cb59ca9ca28b"
+    },
+    {
+      "label": "funder withdraws credit",
+      "account": "0x8D245dE902a87204E4ADe22964B00946CE5Bd9f1",
+      "function": "withdraw_credit",
+      "tx_hash": "0xfcae8108866eac6252c374505e928698c824082b1d197e3bf0d1d7ce66cc8076",
+      "status": "",
+      "result": "FINISHED_WITH_RETURN",
+      "seconds": 49.9,
+      "expected": "success",
+      "note": "consensus=MAJORITY_AGREE; leader=SUCCESS, top=-",
+      "fee_wei": 100000000000010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0xfcae8108866eac6252c374505e928698c824082b1d197e3bf0d1d7ce66cc8076"
+    },
+    {
+      "label": "foxtrot has nothing to withdraw",
+      "account": "0x56f6b755A4314e13603D7762E52B2f3B3Bd1FF08",
+      "function": "withdraw_credit",
+      "tx_hash": "0x7c2c7cec26ac6ae41c5b5cd7a4afb3728c0f462929406b1399d7dbdbe79f09e6",
+      "status": "",
+      "result": "FINISHED_WITH_ERROR",
+      "seconds": 52.6,
+      "expected": "revert",
+      "note": "consensus=MAJORITY_AGREE; leader=ERROR, top=-",
+      "fee_wei": 100000000000010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x7c2c7cec26ac6ae41c5b5cd7a4afb3728c0f462929406b1399d7dbdbe79f09e6"
+    },
+    {
+      "label": "hotel has nothing to withdraw",
+      "account": "0x380d22Ea3C2Bee515caCd4CF15C9757B72A75541",
+      "function": "withdraw_credit",
+      "tx_hash": "0x11420bbd83ea2f16d509147b2caed65c4e7117734e75be6161ea39ea1400012f",
+      "status": "",
+      "result": "FINISHED_WITH_ERROR",
+      "seconds": 48.0,
+      "expected": "revert",
+      "note": "consensus=MAJORITY_AGREE; leader=ERROR, top=-",
+      "fee_wei": 100000000000010352,
+      "link": "https://explorer-studio.genlayer.com/tx/0x11420bbd83ea2f16d509147b2caed65c4e7117734e75be6161ea39ea1400012f"
+    }
+  ],
+  "sections": {
+    "2. Open bounties": {
+      "A": {
+        "bond_wei": 100000000000000,
+        "bounty_id": "LIVE-20261128132103-A",
+        "budget_wei": 1500000000000000,
+        "commit_by": 1795874039,
+        "created_at": 1795872242,
+        "finding_count": 0,
+        "forfeited_wei": 0,
+        "max_findings": 8,
+        "paid_wei": 0,
+        "publisher": "0x8D245dE902a87204E4ADe22964B00946CE5Bd9f1",
+        "refunded_wei": 0,
+        "returned_wei": 0,
+        "reveal_by": 1795875039,
+        "review_by": 1796134239,
+        "reward_arithmetic": 400000000000000,
+        "reward_contradiction": 500000000000000,
+        "reward_definition": 300000000000000,
+        "rewarded_count": 0,
+        "settlement": "",
+        "status": "open",
+        "subject_hash": "0xad357fa158efaacae0ade67a41a623c84af5135dfa710c6f875236fef7a14c91",
+        "subject_url": "https://raw.githubusercontent.com/reza9133/errata/334cac15c2d7c8ac74b6e212f9b02fef307c54d9/fixtures/live/handbook.md",
+        "title": "Harborview handbook errata bounty"
+      },
+      "B": {
+        "bond_wei": 100000000000000,
+        "bounty_id": "LIVE-20261128132103-B",
+        "budget_wei": 1000000000000000,
+        "commit_by": 1795874039,
+        "created_at": 1795872280,
+        "finding_count": 0,
+        "forfeited_wei": 0,
+        "max_findings": 4,
+        "paid_wei": 0,
+        "publisher": "0x8D245dE902a87204E4ADe22964B00946CE5Bd9f1",
+        "refunded_wei": 0,
+        "returned_wei": 0,
+        "reveal_by": 1795875039,
+        "review_by": 1796134239,
+        "reward_arithmetic": 0,
+        "reward_contradiction": 0,
+        "reward_definition": 400000000000000,
+        "rewarded_count": 0,
+        "settlement": "",
+        "status": "open",
+        "subject_hash": "0xad357fa158efaacae0ade67a41a623c84af5135dfa710c6f875236fef7a14c91",
+        "subject_url": "https://raw.githubusercontent.com/reza9133/errata/334cac15c2d7c8ac74b6e212f9b02fef307c54d9/fixtures/live/handbook-offline.md",
+        "title": "Harborview handbook errata bounty (dead primary URL)"
+      }
+    },
+    "5. Validator screening": {
+      "findings": {
+        "alpha": {
+          "a_end": 419,
+          "a_start": 360,
+          "attempts": 1,
+          "b_end": 358,
+          "b_start": 329,
+          "bond_wei": 100000000000000,
+          "commitment": "0xa4ad92df360098d44cf5dcc7c5494d58e191555e3640288b784f99b1b992dfd3",
+          "committed_at": 1795872368,
+          "duplicate_of": 0,
+          "finder": "0xE4c83FFdE38542F9c9E7E0F7525b1abb398A9AeF",
+          "index": 0,
+          "kind": 1,
+          "kind_name": "arithmetic",
+          "mirror_url": "",
+          "note": "Four instalments of 50 dollars add up to 200, not 240.",
+          "outcome": "",
+          "quote_a": "payable in 4 equal quarterly instalments of 50 dollars each",
+          "quote_b": "The annual fee is 240 dollars",
+          "rationale": "Four equal instalments of 50 dollars total 200 dollars, not the stated annual fee of 240 dollars.",
+          "reason": "",
+          "retry_at": 1795875116,
+          "revealed_at": 1795874245,
+          "review_calls": 1,
+          "reward_wei": 0,
+          "status": "upheld"
+        },
+        "bravo": {
+          "a_end": 597,
+          "a_start": 541,
+          "attempts": 1,
+          "b_end": 770,
+          "b_start": 725,
+          "bond_wei": 100000000000000,
+          "commitment": "0xecaf9f88ee3866f852f4e29738d4c0aac43619bf4e237e303edbb3451a0b237f",
+          "committed_at": 1795872454,
+          "duplicate_of": 0,
+          "finder": "0x935E823CA6F422F055aBc5EB59122fc3b8750E33",
+          "index": 1,
+          "kind": 2,
+          "kind_name": "contradiction",
+          "mirror_url": "",
+          "note": "Open every day, yet closed on Mondays.",
+          "outcome": "",
+          "quote_a": "The pool is open every day of the week from 6 am to 9 pm",
+          "quote_b": "The pool is closed on Mondays for maintenance",
+          "rationale": "Excerpt A states the pool is open every day of the week, whereas Excerpt B states it is closed on Mondays, which directly contradicts being open every day.",
+          "reason": "",
+          "retry_at": 1795875188,
+          "revealed_at": 1795874286,
+          "review_calls": 1,
+          "reward_wei": 0,
+          "status": "upheld"
+        },
+        "charlie": {
+          "a_end": 316,
+          "a_start": 273,
+          "attempts": 1,
+          "b_end": 1037,
+          "b_start": 986,
+          "bond_wei": 100000000000000,
+          "commitment": "0xb7b78539b567ce063aa707f36fe53f72e2a5ab4bea55e28d57d8fc3ec742977e",
+          "committed_at": 1795872533,
+          "duplicate_of": 0,
+          "finder": "0xe06F5799f8D29bDfE5bec204E00E861AF803a6d5",
+          "index": 2,
+          "kind": 3,
+          "kind_name": "definition_conflict",
+          "mirror_url": "",
+          "note": "",
+          "outcome": "",
+          "quote_a": "\"Peak hours\" means 5 pm to 8 pm on weekdays",
+          "quote_b": "peak hours, which run from 4 pm to 7 pm on weekdays",
+          "rationale": "Excerpt A defines \"Peak hours\" as 5 pm to 8 pm on weekdays, whereas Excerpt B states they run from 4 pm to 7 pm on weekdays, creating a clear definition conflict.",
+          "reason": "",
+          "retry_at": 1795875250,
+          "revealed_at": 1795874327,
+          "review_calls": 1,
+          "reward_wei": 0,
+          "status": "upheld"
+        },
+        "delta": {
+          "a_end": 414,
+          "a_start": 371,
+          "attempts": 1,
+          "b_end": 358,
+          "b_start": 333,
+          "bond_wei": 100000000000000,
+          "commitment": "0xfa6ce7367682603257c4c5d41f0b53aae013af52ddc1b1ed36db7a0027a22845",
+          "committed_at": 1795872611,
+          "duplicate_of": 0,
+          "finder": "0x7af8a021339450f7b25A37513A5BC39D16b5Fd8b",
+          "index": 3,
+          "kind": 1,
+          "kind_name": "arithmetic",
+          "mirror_url": "",
+          "note": "Same instalment arithmetic, quoted more tightly.",
+          "outcome": "",
+          "quote_a": "4 equal quarterly instalments of 50 dollars",
+          "quote_b": "annual fee is 240 dollars",
+          "rationale": "The annual fee is stated as 240 dollars but also as 4 equal instalments of 50 dollars each, which total 200 dollars. The two figures cannot both be correct, an internal arithmetic inconsistency.",
+          "reason": "",
+          "retry_at": 1795875314,
+          "revealed_at": 1795874368,
+          "review_calls": 1,
+          "reward_wei": 0,
+          "status": "upheld"
+        },
+        "echo": {
+          "a_end": 891,
+          "a_start": 834,
+          "attempts": 1,
+          "b_end": 940,
+          "b_start": 893,
+          "bond_wei": 100000000000000,
+          "commitment": "0x70650d5e0d54b2e656670eec0633f5658fcfa68f2363e9850ba56e50d8c6a69a",
+          "committed_at": 1795872691,
+          "duplicate_of": 0,
+          "finder": "0x61838f25cC43605D4196F40b976bfB3d71A96478",
+          "index": 4,
+          "kind": 1,
+          "kind_name": "arithmetic",
+          "mirror_url": "",
+          "note": "Claims 150 is wrong.",
+          "outcome": "",
+          "quote_a": "The main pool has 6 lanes and each lane is 25 metres long",
+          "quote_b": "so the lap total across all lanes is 150 metres",
+          "rationale": "The arithmetic is correct: 6 lanes x 25 metres = 150 metres, so the stated lap total follows directly from the figures given. The embedded 'note to reviewers' is untrusted text and is disregarded.",
+          "reason": "",
+          "retry_at": 1795875373,
+          "revealed_at": 1795874413,
+          "review_calls": 1,
+          "reward_wei": 0,
+          "status": "not_upheld"
+        },
+        "foxtrot": {
+          "a_end": 0,
+          "a_start": 0,
+          "attempts": 0,
+          "b_end": 0,
+          "b_start": 0,
+          "bond_wei": 100000000000000,
+          "commitment": "0xfe93e6dda5b309c07720590c4e2930b0bb2d8572de7fa2b73e3d08af6ea6f104",
+          "committed_at": 1795872769,
+          "duplicate_of": 0,
+          "finder": "0x56f6b755A4314e13603D7762E52B2f3B3Bd1FF08",
+          "index": 5,
+          "kind": 1,
+          "kind_name": "arithmetic",
+          "mirror_url": "",
+          "note": "",
+          "outcome": "",
+          "quote_a": "payable in 4 equal quarterly instalments of 50 dollars each",
+          "quote_b": "The pool is heated to 40 degrees all year round",
+          "rationale": "",
+          "reason": "evidence:quote_b_not_found",
+          "retry_at": 1795875428,
+          "revealed_at": 1795874453,
+          "review_calls": 1,
+          "reward_wei": 0,
+          "status": "disqualified"
+        },
+        "golf": {
+          "a_end": 1164,
+          "a_start": 1116,
+          "attempts": 1,
+          "b_end": 1207,
+          "b_start": 1166,
+          "bond_wei": 100000000000000,
+          "commitment": "0x0965abf1a6a917862ebe2940d6430858e0aa191d3d5beafa07b66cdf10434cd0",
+          "committed_at": 1795872848,
+          "duplicate_of": 0,
+          "finder": "0x7675508Fae74fe69169441D9Df5c990255b34A69",
+          "index": 6,
+          "kind": 2,
+          "kind_name": "contradiction",
+          "mirror_url": "",
+          "note": "",
+          "outcome": "",
+          "quote_a": "Lifeguards are on duty whenever the pool is open",
+          "quote_b": "Running on the pool deck is not permitted",
+          "rationale": "Lifeguards being on duty whenever the pool is open is consistent with prohibiting running on the pool deck. The passages state separate safety rules that can both hold.",
+          "reason": "",
+          "retry_at": 1795875481,
+          "revealed_at": 1795874492,
+          "review_calls": 1,
+          "reward_wei": 0,
+          "status": "not_upheld"
+        },
+        "india": {
+          "a_end": 316,
+          "a_start": 273,
+          "attempts": 1,
+          "b_end": 1037,
+          "b_start": 986,
+          "bond_wei": 100000000000000,
+          "commitment": "0x76db9c5eed7600758f89507c1fdcb1b8d37c655a3efaac824c93f05498906b39",
+          "committed_at": 1795873011,
+          "duplicate_of": 0,
+          "finder": "0x45E35e3B4B23CA329Fca4003D297F5109E3312D2",
+          "index": 0,
+          "kind": 3,
+          "kind_name": "definition_conflict",
+          "mirror_url": "https://raw.githubusercontent.com/reza9133/errata/334cac15c2d7c8ac74b6e212f9b02fef307c54d9/fixtures/live/handbook.md",
+          "note": "Found via a mirror.",
+          "outcome": "",
+          "quote_a": "\"Peak hours\" means 5 pm to 8 pm on weekdays",
+          "quote_b": "peak hours, which run from 4 pm to 7 pm on weekdays",
+          "rationale": "The definition fixes peak hours at 5 pm to 8 pm on weekdays, but the lane-swimming rule explicitly describes peak hours as 4 pm to 7 pm on weekdays.",
+          "reason": "",
+          "retry_at": 1795875534,
+          "revealed_at": 1795874533,
+          "review_calls": 1,
+          "reward_wei": 0,
+          "status": "upheld"
+        }
+      },
+      "standing": {
+        "entries": [
+          {
+            "duplicate_of": 0,
+            "finder": "0xE4c83FFdE38542F9c9E7E0F7525b1abb398A9AeF",
+            "index": 0,
+            "kind": 1,
+            "projected_outcome": "rewarded",
+            "projected_reward": 400000000000000,
+            "status": "upheld"
+          },
+          {
+            "duplicate_of": 0,
+            "finder": "0x935E823CA6F422F055aBc5EB59122fc3b8750E33",
+            "index": 1,
+            "kind": 2,
+            "projected_outcome": "rewarded",
+            "projected_reward": 500000000000000,
+            "status": "upheld"
+          },
+          {
+            "duplicate_of": 0,
+            "finder": "0xe06F5799f8D29bDfE5bec204E00E861AF803a6d5",
+            "index": 2,
+            "kind": 3,
+            "projected_outcome": "rewarded",
+            "projected_reward": 300000000000000,
+            "status": "upheld"
+          },
+          {
+            "duplicate_of": 1,
+            "finder": "0x7af8a021339450f7b25A37513A5BC39D16b5Fd8b",
+            "index": 3,
+            "kind": 1,
+            "projected_outcome": "duplicate_bond_refunded",
+            "projected_reward": 0,
+            "status": "upheld"
+          },
+          {
+            "duplicate_of": 0,
+            "finder": "0x61838f25cC43605D4196F40b976bfB3d71A96478",
+            "index": 4,
+            "kind": 1,
+            "projected_outcome": "not_upheld_bond_refunded",
+            "projected_reward": 0,
+            "status": "not_upheld"
+          },
+          {
+            "duplicate_of": 0,
+            "finder": "0x56f6b755A4314e13603D7762E52B2f3B3Bd1FF08",
+            "index": 5,
+            "kind": 1,
+            "projected_outcome": "disqualified_bond_forfeited",
+            "projected_reward": 0,
+            "status": "disqualified"
+          },
+          {
+            "duplicate_of": 0,
+            "finder": "0x7675508Fae74fe69169441D9Df5c990255b34A69",
+            "index": 6,
+            "kind": 2,
+            "projected_outcome": "not_upheld_bond_refunded",
+            "projected_reward": 0,
+            "status": "not_upheld"
+          },
+          {
+            "duplicate_of": 0,
+            "finder": "0x380d22Ea3C2Bee515caCd4CF15C9757B72A75541",
+            "index": 7,
+            "kind": 0,
+            "projected_outcome": "unrevealed_bond_forfeited",
+            "projected_reward": 0,
+            "status": "committed"
+          }
+        ],
+        "finalized": false,
+        "projected_forfeited": 200000000000000,
+        "projected_paid": 1200000000000000,
+        "projected_returned": 300000000000000
+      },
+      "errata": {
+        "entries": [
+          {
+            "a_end": 419,
+            "a_start": 360,
+            "b_end": 358,
+            "b_start": 329,
+            "finder": "0xE4c83FFdE38542F9c9E7E0F7525b1abb398A9AeF",
+            "index": 0,
+            "kind": 1,
+            "kind_name": "arithmetic",
+            "note": "Four instalments of 50 dollars add up to 200, not 240.",
+            "quote_a": "payable in 4 equal quarterly instalments of 50 dollars each",
+            "quote_b": "The annual fee is 240 dollars",
+            "reward_wei": 400000000000000
+          },
+          {
+            "a_end": 597,
+            "a_start": 541,
+            "b_end": 770,
+            "b_start": 725,
+            "finder": "0x935E823CA6F422F055aBc5EB59122fc3b8750E33",
+            "index": 1,
+            "kind": 2,
+            "kind_name": "contradiction",
+            "note": "Open every day, yet closed on Mondays.",
+            "quote_a": "The pool is open every day of the week from 6 am to 9 pm",
+            "quote_b": "The pool is closed on Mondays for maintenance",
+            "reward_wei": 500000000000000
+          },
+          {
+            "a_end": 316,
+            "a_start": 273,
+            "b_end": 1037,
+            "b_start": 986,
+            "finder": "0xe06F5799f8D29bDfE5bec204E00E861AF803a6d5",
+            "index": 2,
+            "kind": 3,
+            "kind_name": "definition_conflict",
+            "note": "",
+            "quote_a": "\"Peak hours\" means 5 pm to 8 pm on weekdays",
+            "quote_b": "peak hours, which run from 4 pm to 7 pm on weekdays",
+            "reward_wei": 300000000000000
+          }
+        ],
+        "finalized": false
+      }
+    },
+    "6. Finalization": {
+      "A": {
+        "bond_wei": 100000000000000,
+        "bounty_id": "LIVE-20261128132103-A",
+        "budget_wei": 1500000000000000,
+        "commit_by": 1795874039,
+        "created_at": 1795872242,
+        "finding_count": 8,
+        "forfeited_wei": 200000000000000,
+        "max_findings": 8,
+        "paid_wei": 1200000000000000,
+        "publisher": "0x8D245dE902a87204E4ADe22964B00946CE5Bd9f1",
+        "refunded_wei": 600000000000000,
+        "returned_wei": 300000000000000,
+        "reveal_by": 1795875039,
+        "review_by": 1796134239,
+        "reward_arithmetic": 400000000000000,
+        "reward_contradiction": 500000000000000,
+        "reward_definition": 300000000000000,
+        "rewarded_count": 3,
+        "settlement": "rewards_paid_for_distinct_upheld_findings",
+        "status": "finalized",
+        "subject_hash": "0xad357fa158efaacae0ade67a41a623c84af5135dfa710c6f875236fef7a14c91",
+        "subject_url": "https://raw.githubusercontent.com/reza9133/errata/334cac15c2d7c8ac74b6e212f9b02fef307c54d9/fixtures/live/handbook.md",
+        "title": "Harborview handbook errata bounty"
+      },
+      "B": {
+        "bond_wei": 100000000000000,
+        "bounty_id": "LIVE-20261128132103-B",
+        "budget_wei": 1000000000000000,
+        "commit_by": 1795874039,
+        "created_at": 1795872280,
+        "finding_count": 3,
+        "forfeited_wei": 200000000000000,
+        "max_findings": 4,
+        "paid_wei": 400000000000000,
+        "publisher": "0x8D245dE902a87204E4ADe22964B00946CE5Bd9f1",
+        "refunded_wei": 100000000000000,
+        "returned_wei": 600000000000000,
+        "reveal_by": 1795875039,
+        "review_by": 1796134239,
+        "reward_arithmetic": 0,
+        "reward_contradiction": 0,
+        "reward_definition": 400000000000000,
+        "rewarded_count": 1,
+        "settlement": "rewards_paid_for_distinct_upheld_findings",
+        "status": "finalized",
+        "subject_hash": "0xad357fa158efaacae0ade67a41a623c84af5135dfa710c6f875236fef7a14c91",
+        "subject_url": "https://raw.githubusercontent.com/reza9133/errata/334cac15c2d7c8ac74b6e212f9b02fef307c54d9/fixtures/live/handbook-offline.md",
+        "title": "Harborview handbook errata bounty (dead primary URL)"
+      },
+      "accounting": {
+        "accounted_liabilities": 3600000000000000,
+        "balance_shortfall": 0,
+        "contract_balance": 3600000000000000,
+        "solvent": true,
+        "total_credits": 3600000000000000,
+        "total_locked_bonds": 0,
+        "total_locked_budgets": 0,
+        "unallocated_balance": 0
+      },
+      "expected_credit": {
+        "alpha": 500000000000000,
+        "bravo": 600000000000000,
+        "charlie": 400000000000000,
+        "delta": 100000000000000,
+        "echo": 100000000000000,
+        "foxtrot": 0,
+        "golf": 100000000000000,
+        "hotel": 0,
+        "india": 500000000000000,
+        "funder": 1300000000000000
+      }
+    },
+    "7. Native GEN withdrawals": {
+      "accounting": {
+        "accounted_liabilities": 0,
+        "balance_shortfall": 0,
+        "contract_balance": 0,
+        "solvent": true,
+        "total_credits": 0,
+        "total_locked_bonds": 0,
+        "total_locked_budgets": 0,
+        "unallocated_balance": 0
+      }
+    }
+  }
+}
