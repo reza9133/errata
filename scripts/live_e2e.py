@@ -66,7 +66,7 @@ GEN = 10**18
 # native balance. Every test account that sends a transaction (the funder, each finder and the stranger)
 # gets this much on top of what its role needs; sim_fundAccount makes that free on Studionet.
 TX_FEE_BUFFER = 1 * GEN
-MIN_RPC_GAP_SECONDS = 1.2  # Studionet allows 60 requests per minute per IP
+MIN_RPC_GAP_SECONDS = 2.1  # Studionet allows 60 requests per minute per IP
 
 SUBJECT_FILE = "handbook.md"
 OFFLINE_FILE = "handbook-offline.md"  # deliberately absent from the repository
@@ -268,6 +268,13 @@ class GenLayerChain(Chain):
         self._last_rpc = time.monotonic()
 
     def _rpc(self, method: str, params: list) -> Any:
+        for i in range(5):
+            try: return self._rpc_once(method, params)
+            except ChainError as e:
+                if i == 4 or not self._transient(e): raise
+                time.sleep(5 * (i + 1))
+
+    def _rpc_once(self, method: str, params: list) -> Any:
         self._throttle()
         body = json.dumps({"jsonrpc": "2.0", "id": 1, "method": method, "params": params}).encode()
         request = urllib.request.Request(
@@ -370,7 +377,7 @@ class GenLayerChain(Chain):
     @staticmethod
     def _transient(error: Exception) -> bool:
         text = str(error)
-        return any(marker in text for marker in ("502", "503", "504", "Bad gateway", "invalid JSON",
+        return any(marker in text for marker in ("429", "Rate limit", "cannot reach", "502", "503", "504", "Bad gateway", "invalid JSON",
                                                  "timed out", "Connection"))
 
     @staticmethod
