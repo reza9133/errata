@@ -1,4 +1,4 @@
-# v0.2.0
+# v0.4.0
 # { "Depends": "py-genlayer:kzybg95x1gn21dw72m7hyg0maaap04n4nx55j9yt6fkdqxtz6bz0" }
 """Errata: a sealed-finding errata bounty for hash-pinned documents.
 
@@ -38,7 +38,7 @@ import genlayer as gl
 from genlayer import Address, u16, u32, u256
 
 
-VERSION = "0.2.0"
+VERSION = "0.4.0"
 
 # Bounty states
 OPEN = "open"
