@@ -485,7 +485,7 @@ def _fee_value(fees: Any) -> int:
 def _find_address(node: Any, depth: int = 0) -> str:
     if depth > 6:
         return ""
-    keys = ("contract_address", "contractAddress", "created_address", "recipient", "to_address")
+    keys = ("contract_address", "contractAddress", "created_address")
     if isinstance(node, dict):
         for key in keys:
             value = node.get(key)
