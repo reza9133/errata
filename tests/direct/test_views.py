@@ -9,7 +9,7 @@ from tests.direct.support import (
 
 def test_info_describes_the_rules_the_contract_enforces(direct_vm, direct_deploy, actors):
     info = deploy(direct_vm, direct_deploy).get_info()
-    assert info["name"] == "Errata" and info["version"] == "0.2.0"
+    assert info["name"] == "Errata" and info["version"] == "0.4.0"
     assert [k["name"] for k in info["kinds"]] == ["arithmetic", "contradiction", "definition_conflict"]
     assert [k["kind"] for k in info["kinds"]] == [1, 2, 3]
     assert info["context_radii"] == [300, 900, 2000]
