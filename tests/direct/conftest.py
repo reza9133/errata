@@ -1,6 +1,22 @@
 import hashlib
+import json
 
 import pytest
+
+
+def host_text(response):
+    """Encode a mocked model answer the way the real GenVM host returns it.
+
+    For exec_prompt(response_format="json") the host hands the SDK the model's answer as text and the
+    SDK parses it. genlayer-test (0.30.x) json-parses any str mock into a dict itself, which the current
+    SDK rejects ("JSON result is not text"). Bytes skip that pre-parse and reach the SDK as text, so
+    garbage and malformed answers still fail inside the SDK exactly as they would on a validator.
+    """
+    if isinstance(response, (bytes, bytearray)):
+        return bytes(response)
+    if isinstance(response, str):
+        return response.encode("utf-8")
+    return json.dumps(response).encode("utf-8")
 
 
 @pytest.fixture
@@ -31,9 +47,9 @@ def _latest_mock_wins(direct_vm):
     def mock_llm(prompt_pattern, response):
         for index, (pattern, _old) in enumerate(direct_vm._llm_mocks):
             if pattern.pattern == prompt_pattern:
-                direct_vm._llm_mocks[index] = (pattern, response)
+                direct_vm._llm_mocks[index] = (pattern, host_text(response))
                 return
-        original_llm(prompt_pattern, response)
+        original_llm(prompt_pattern, host_text(response))
 
     direct_vm.mock_web = mock_web
     direct_vm.mock_llm = mock_llm

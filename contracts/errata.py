@@ -1,5 +1,5 @@
 # v0.2.0
-# { "Depends": "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6" }
+# { "Depends": "py-genlayer:kzybg95x1gn21dw72m7hyg0maaap04n4nx55j9yt6fkdqxtz6bz0" }
 """Errata: a sealed-finding errata bounty for hash-pinned documents.
 
 A publisher escrows a budget and pins a subject document by SHA-256. Readers
@@ -34,7 +34,8 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from urllib.parse import urlsplit
 
-from genlayer import Address, TreeMap, allow_storage, gl, u16, u32, u256
+import genlayer as gl
+from genlayer import Address, u16, u32, u256
 
 
 VERSION = "0.2.0"
@@ -119,7 +120,7 @@ MAX_REASON = 64
 SUBJECT_FAULT_PREFIX = "subject_"
 
 
-@allow_storage
+@gl.storage.allow
 @dataclass
 class Bounty:
     bounty_id: str
@@ -147,7 +148,7 @@ class Bounty:
     returned_wei: u256
 
 
-@allow_storage
+@gl.storage.allow
 @dataclass
 class Finding:
     bounty_key: str
@@ -520,10 +521,10 @@ def _refuse_value() -> None:
         raise gl.vm.UserError("[EXPECTED] This method does not accept GEN")
 
 
-class Errata(gl.Contract):
-    bounties: TreeMap[str, Bounty]
-    findings: TreeMap[str, Finding]
-    credits: TreeMap[str, u256]
+class Errata(gl.contract.Contract):
+    bounties: gl.storage.TreeMap[str, Bounty]
+    findings: gl.storage.TreeMap[str, Finding]
+    credits: gl.storage.TreeMap[str, u256]
     total_credits: u256
     total_locked_budgets: u256
     total_locked_bonds: u256
@@ -904,7 +905,7 @@ class Errata(gl.Contract):
             return _equivalent(leader_output, _observe(snapshot), snapshot)
 
         try:
-            result = gl.vm.run_nondet_unsafe(leader_fn, validator_fn)
+            result = gl.vm.run_nondet(leader_fn, validator_fn)
         except Exception:
             self._charge_call(finding, now)
             finding.reason = "consensus_execution_failure"

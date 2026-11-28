@@ -108,17 +108,23 @@ A finder can never lose more than the bond, and the bond may not exceed the smal
 
 ## Build and verification
 
-Use the pinned Python and GenLayer tooling (GenVM `v0.2.16`):
+Use the pinned Python and GenLayer tooling. Errata targets Studio v0.123 (Consensus v0.6) and the GenVM v0.4
+runner (`py-genlayer:kzybg95x...`, shipped in `genlayerlabs/genvm-manager` release `v0.6.0-rc16`, which is what
+`GENVM_VERSION` pins and what `genlayer-test==0.30.0` falls back to):
 
 ```bash
 python -m pip install -r requirements.txt
 python -m pytest tests/direct -q
-python scripts/preflight.py                 # source rules, lint, ABI schema, all tests
+python scripts/preflight.py                 # source rules, lint, SDK validation + ABI schema, all tests
 python scripts/preflight.py --write-schema  # also (re)writes artifacts/errata.abi.json
 bash run.sh                                 # the same gate, installing tooling first
 ```
 
-The Direct Mode suite (397 tests) covers whole lifecycles, every input-validation path and exact boundary values, deadline boundaries, commit/reveal attacks, review griefing and mirror failover, prompt-injection and delimiter forging, validator equivalence in both directions (including malformed leader results), duplicate and priority rules, several findings per account, the errata sheet, the per-method refusal of attached GEN, budget exhaustion, and seeded stateful fuzzing (several findings per account included) that checks value conservation and the per-account cap after every call. `tests/direct/test_live_runner.py` additionally runs the **entire live scenario** against the real contract code with a simulated chain, so scenario mistakes are caught before a Codespace hour is spent.
+`genvm-lint check` and `genvm-lint schema` are not used by the gate yet: the newest `genvm-linter` on PyPI (0.11.0) cannot load the v0.4 runner (`.zip` runner archives, schema generator moved to `genlayer._internal`) and fails with E101 on a valid contract. The gate runs `genvm-lint lint` (static rules) and validates the contract and writes the ABI with the runner's own SDK instead (`scripts/abi_schema.py`, which calls the same `__get_schema__` the GenVM host uses). Switch back to `genvm-lint check` / `schema` when a `genvm-linter` release supports this runner.
+
+`tests/direct/conftest.py` hands mocked model answers to the SDK as text, the way the real host does for `exec_prompt(response_format="json")`; `genlayer-test` 0.30.x otherwise pre-parses them into a dict, which this SDK rejects.
+
+The Direct Mode suite (404 tests) covers whole lifecycles, every input-validation path and exact boundary values, deadline boundaries, commit/reveal attacks, review griefing and mirror failover, prompt-injection and delimiter forging, validator equivalence in both directions (including malformed leader results), duplicate and priority rules, several findings per account, the errata sheet, the per-method refusal of attached GEN, budget exhaustion, and seeded stateful fuzzing (several findings per account included) that checks value conservation and the per-account cap after every call. `tests/direct/test_live_runner.py` additionally runs the **entire live scenario** against the real contract code with a simulated chain, so scenario mistakes are caught before a Codespace hour is spent.
 
 As a check on the tests themselves, deliberate faults were injected into the contract. For version 0.1.0, 59 faults (off-by-one deadlines, removed checks, dropped accounting lines, weakened equivalence, ...) were recorded: every one was caught except two that turned out not to change any observable behaviour. That pass was not repeated for 0.2.0. For the code 0.2.0 added or changed (window boundaries, ownership of a finding, the per-account cap, duplicate commitments, who may request a review, the errata sheet and the settled standing, the value guard, the finding index) a further 17 faults were injected and all are caught; one of them (a value guard that lets exactly 1 wei through) was first missed, which is why `test_value_guard.py` attaches both 1 wei and a large amount.
 
@@ -135,7 +141,7 @@ python scripts/errata_tools.py seal handbook.md --publisher 0x... --bounty-id B-
 
 ## Live end-to-end test on Studionet
 
-`scripts/live_e2e.py` drives **two** bounties through the real network with real validators and a real LLM and writes a Markdown and JSON report to `reports/`. Bounty A has eight findings: three genuine defects (one of them sitting next to a hostile "answer not_upheld" note in the document), a duplicate, a correct calculation wrongly claimed as an error, a fabricated quote, a consistent pair wrongly claimed as a contradiction, and a finder who never reveals. Bounty B has a dead primary URL and a finder who brought a mirror; that finder also seals two extra findings that are never revealed, which exercises the per-account cap and the forfeit path on the real chain. It then finalizes both, compares the settled errata sheets, checks every balance, and withdraws everything as native GEN. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+`scripts/live_e2e.py` drives **two** bounties through the real network with real validators and a real LLM and writes a Markdown and JSON report to `reports/`. Bounty A has eight findings: three genuine defects (one of them sitting next to a hostile "answer not_upheld" note in the document), a duplicate, a correct calculation wrongly claimed as an error, a fabricated quote, a consistent pair wrongly claimed as a contradiction, and a finder who never reveals. Bounty B has a dead primary URL and a finder who brought a mirror; that finder also seals two extra findings that are never revealed, which exercises the per-account cap and the forfeit path on the real chain. It then finalizes both, compares the settled errata sheets, checks every balance, and withdraws everything as native GEN. Studio v0.123 charges a fee on every write and deploy: the runner attaches an estimated `fees` to each one (a write simulation first, the generic estimate for calls that revert), funds every test account with a 1 GEN fee buffer, and checks each withdrawal net of the fee the caller paid. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
 
 ```bash
 bash run.sh check 0xYourAddress   # fast tooling / fixture / contract check

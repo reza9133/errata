@@ -62,6 +62,10 @@ EXPLORER_TX = "https://explorer-studio.genlayer.com/tx/"
 EXPLORER_ADDRESS = "https://explorer-studio.genlayer.com/address/"
 DEFAULT_RPC = "https://studio.genlayer.com/api"
 GEN = 10**18
+# Studio v0.123 (Consensus v0.6) charges a feeValue on every write and deploy, paid from the sender's
+# native balance. Every test account that sends a transaction (the funder, each finder and the stranger)
+# gets this much on top of what its role needs; sim_fundAccount makes that free on Studionet.
+TX_FEE_BUFFER = 1 * GEN
 MIN_RPC_GAP_SECONDS = 1.2  # Studionet allows 60 requests per minute per IP
 
 SUBJECT_FILE = "handbook.md"
@@ -148,6 +152,7 @@ class TxRecord:
     seconds: float = 0.0
     expected: str = "success"
     note: str = ""
+    fee_wei: int = 0  # feeValue attached to the transaction (0 when unknown)
 
     @property
     def link(self) -> str:
@@ -376,6 +381,25 @@ class GenLayerChain(Chain):
                 return str(getattr(value, "name", value))
         return ""
 
+    def _fees_for_write(self, name: str, function: str, args: list, value: int) -> Any:
+        """The fees to attach to one write under Studio v0.123.
+
+        The simulated estimate comes first: it matters for calls that emit an outgoing value
+        transfer, such as withdraw_credit. A call that is expected to revert cannot be simulated
+        (and a simulation can fail for transport reasons too), so any failure falls back to the
+        plain estimate, which still yields a valid feeValue."""
+        self._throttle()
+        try:
+            return self.client.estimate_transaction_fees_for_write(
+                address=self.contract, function_name=function, account=self.accounts[name],
+                args=args, value=value,
+            )
+        except Exception as error:  # noqa: BLE001
+            log(f"{function}: write simulation unavailable ({type(error).__name__}); "
+                "using the generic fee estimate")
+            self._throttle()
+            return self.client.estimate_transaction_fees()
+
     def write(self, name: str, function: str, args: list, value: int = 0,
               label: str = "", expect: str = "success") -> TxRecord:
         record = TxRecord(label or function, self.address(name), function, expected=expect)
@@ -383,11 +407,13 @@ class GenLayerChain(Chain):
         try:
             tx_hash = ""
             for attempt in range(4):
-                self._throttle()
                 try:
+                    fees = self._fees_for_write(name, function, args, value)
+                    record.fee_wei = _fee_value(fees)
+                    self._throttle()
                     tx_hash = self.client.write_contract(
                         address=self.contract, function_name=function, account=self.accounts[name],
-                        args=args, value=value,
+                        args=args, value=value, fees=fees,
                     )
                     break
                 except Exception as error:  # noqa: BLE001
@@ -422,7 +448,11 @@ class GenLayerChain(Chain):
     # ---- deployment (best effort convenience)
     def deploy(self, code: str) -> str:
         self._throttle()
-        tx_hash = str(self.client.deploy_contract(code=code, args=[], account=self.accounts["funder"]))
+        fees = self.client.estimate_transaction_fees()
+        self._throttle()
+        tx_hash = str(self.client.deploy_contract(
+            code=code, args=[], account=self.accounts["funder"], fees=fees,
+        ))
         receipt = self._wait(tx_hash)
         found = _find_address(receipt)
         if not found:
@@ -431,6 +461,18 @@ class GenLayerChain(Chain):
                 "from the receipt. Copy it from the Studionet explorer and pass --address."
             )
         return found
+
+
+def _fee_value(fees: Any) -> int:
+    """The feeValue of a genlayer-py fee estimate (a dict with feeValue / fee_value), or 0."""
+    for key in ("feeValue", "fee_value"):
+        value = fees.get(key) if isinstance(fees, dict) else getattr(fees, key, None)
+        if value is not None:
+            try:
+                return int(value)
+            except (TypeError, ValueError):
+                return 0
+    return 0
 
 
 def _find_address(node: Any, depth: int = 0) -> str:
@@ -648,10 +690,12 @@ class Scenario:
 
     # ---- phases
     def funding_needs(self) -> dict:
-        needs = {"funder": BUDGET_A + BUDGET_B + 2 * BOND}
+        needs = {"funder": BUDGET_A + BUDGET_B + 2 * BOND + TX_FEE_BUFFER}
         for name in FINDERS:
-            needs[name] = BOND + 10**14
+            needs[name] = BOND + 10**14 + TX_FEE_BUFFER
         needs["india"] += EXTRA_SEALS * BOND
+        # The stranger only sends calls that revert or finalize, but under v0.123 every one pays a fee.
+        needs["stranger"] = TX_FEE_BUFFER
         return needs
 
     def print_funding_plan(self) -> None:
@@ -968,18 +1012,29 @@ class Scenario:
             if wei == 0 or self.state.setdefault("withdrawn", {}).get(name):
                 continue
             before = self.chain.balance(name)
-            self.tx(name, "withdraw_credit", [], label=f"{name} withdraws credit", section=section)
+            record = self.tx(name, "withdraw_credit", [], label=f"{name} withdraws credit",
+                            section=section)
+            # Under Studio v0.123 the caller of withdraw_credit also pays the transaction fee from its
+            # own native balance, so it never gains exactly `wei`: it gains `wei` minus the fee actually
+            # charged, which is at most the feeValue attached to the call (TX_FEE_BUFFER if unknown).
+            fee_cap = record.fee_wei or TX_FEE_BUFFER
             deadline = time.time() + 240
             after = before
             while time.time() < deadline:
                 after = self.chain.balance(name)
-                if after - before >= wei:
+                if before + wei - after <= fee_cap:  # the payout has landed, net of the fee
                     break
                 time.sleep(8)
-            gained = after - before
-            self.report.check(section, f"{name} received {wei} wei", gained == wei, wei, gained)
-            self.report.check(section, f"{name} ledger credit cleared", self.credit(name) == 0, 0,
-                              self.credit(name))
+            net_fee = before + wei - after  # what the withdrawal cost: its credit minus the net gain
+            self.report.check(section, f"{name} withdraw_credit transaction succeeded",
+                              record.succeeded is True, "FINISHED_WITH_RETURN",
+                              record.result or f"UNKNOWN ({record.note})")
+            credit_left = self.credit(name)
+            self.report.check(section, f"{name} ledger credit cleared", credit_left == 0, 0, credit_left)
+            self.report.check(section, f"{name} balance rose by {wei} wei net of the transaction fee",
+                              0 <= net_fee <= fee_cap,
+                              f"net fee between 0 and {fee_cap} wei",
+                              f"net gain {after - before}, net fee {net_fee}")
             self.state["withdrawn"][name] = True
             self.save()
         for name in ("foxtrot", "hotel"):

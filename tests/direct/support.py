@@ -15,7 +15,7 @@ from scripts.errata_tools import commitment as client_commitment  # noqa: E402
 from scripts.errata_tools import sha256_hex  # noqa: E402
 
 CONTRACT = "contracts/errata.py"
-RUNNER = "v0.2.16"
+RUNNER = "v0.6.0-rc16"
 NOW = "2026-10-01T12:00:00Z"
 NOW_TS = int(datetime(2026, 10, 1, 12, 0, tzinfo=timezone.utc).timestamp())
 HOUR = 3600
@@ -300,7 +300,7 @@ def capture_prompts(direct_vm, answer="upheld"):
 
     def handler(data):
         prompts.append(data.get("prompt", ""))
-        return {"ok": value}
+        return {"ok": json.dumps(value)}
 
     direct_vm._llm_mocks.clear()
     direct_vm._live_llm_handler = handler

@@ -1,6 +1,6 @@
 # Deployment and live verification (Studionet)
 
-Errata targets GenLayer **Studionet** and GenVM `v0.2.16`. The offline gate and the simulated-chain scenario run anywhere; the live run needs internet access, a public GitHub repository for the fixture, and about 75 minutes.
+Errata targets GenLayer **Studionet** (Studio v0.123, Consensus v0.6, chain ID 61999) and the GenVM v0.4 runner (`genvm-manager` release `v0.6.0-rc16`, the version `GENVM_VERSION` pins). The offline gate and the simulated-chain scenario run anywhere; the live run needs internet access, a public GitHub repository for the fixture, and about 75 minutes.
 
 ## 1. Prepare a Codespace
 
@@ -11,7 +11,7 @@ Errata targets GenLayer **Studionet** and GenVM `v0.2.16`. The offline gate and 
    python scripts/preflight.py --write-schema
    ```
 
-   It checks source rules, runs `genvm-lint`, writes `artifacts/errata.abi.json`, and runs every Direct Mode test. Fix any failure before deploying; do not skip it.
+   It checks source rules, runs `genvm-lint lint`, validates the contract with the runner's own SDK, writes `artifacts/errata.abi.json`, and runs every Direct Mode test. Fix any failure before deploying; do not skip it. (`genvm-lint check` and `schema` are not used yet: `genvm-linter` 0.11.0 cannot load the v0.4 runner. See the README.)
 3. Commit and push `fixtures/live/` unchanged. The runner pins the commit and refuses to start if the public bytes differ from the local file. `.gitattributes` stops git from rewriting line endings, which would change the hash.
 
 ## 2. Deploy
@@ -26,6 +26,8 @@ python scripts/live_e2e.py --deploy        # the same, without the offline gate
 ## 3. Run the live end-to-end test
 
 The runner uses throwaway accounts (one publisher, nine finders and a stranger; the finder `india` seals three findings) and prints what each needs. It funds them through `sim_fundAccount` when the endpoint offers it.
+
+Studio v0.123 charges a transaction fee (`feeValue`) on every `deploy_contract` and `write_contract` call, paid from the sender's native balance, including the stranger's calls and calls that revert. The runner attaches `fees` to every transaction: it asks `estimate_transaction_fees_for_write` first (important for `withdraw_credit`, which emits an outgoing transfer) and falls back to `estimate_transaction_fees()` when the simulation fails, as it does for the calls the scenario expects to revert. Each account is funded with a 1 GEN fee buffer on top of what its role needs. A withdrawal is verified as: the `withdraw_credit` transaction finished with a return, the ledger credit is zero, and the native balance rose by the credit minus a fee no larger than the fee attached to that call. When a fee exceeds the credit, the balance can end below where it started and only the first two checks prove the payout.
 
 ```bash
 bash run.sh check 0xYourAddress    # tooling, fixture and contract check, a few minutes
@@ -55,11 +57,12 @@ Real LLM output is probabilistic. A `FAIL` on a screening check means the model 
 
 ## 5. Offline rehearsal
 
-`tests/direct/test_live_runner.py` runs this exact scenario (about 120 checks, plus the non-payable probe) against the real contract code with a simulated chain, the web and an idealised model. If it fails after you edit the contract, the live run would fail too.
+`tests/direct/test_live_runner.py` runs this exact scenario (about 130 checks, plus the non-payable probe, with a fee charged to every transaction) against the real contract code with a simulated chain, the web and an idealised model. If it fails after you edit the contract, the live run would fail too.
 
 ## Known unverified assumptions
 
-- `sim_fundAccount` may not exist on your Studionet endpoint; fund the printed addresses manually if the runner says so.
+- `sim_fundAccount` may not exist on your Studionet endpoint; fund the printed addresses manually if the runner says so (each account needs its 1 GEN fee buffer too).
+- The fee handling in `scripts/live_e2e.py` was tested against a stub of the `genlayer-py` 0.19.0 client, not against Studionet: the live run is the first real check of the fee estimates and of the extra RPC calls they add under the 60 requests per minute limit.
 - Receipt field names in `genlayer-py` are parsed defensively and may need adjustment.
 - The contract assumes transaction time is available through `datetime.now()` during consensus.
 - A real validator set can disagree on a borderline verdict. The runner retries a screening up to six times (alternating the publisher and the finder as caller, with the contract's own cooldown); a finding that never reaches consensus is reported as a failed check, not hidden.

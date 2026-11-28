@@ -11,7 +11,7 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
-export GENVM_VERSION="${GENVM_VERSION:-v0.2.16}"
+export GENVM_VERSION="${GENVM_VERSION:-v0.6.0-rc16}"
 mode="${1:-offline}"
 address="${2:-${ERRATA_ADDRESS:-}}"
 

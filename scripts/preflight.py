@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CONTRACTS = ROOT / "contracts"
 CONTRACT = CONTRACTS / "errata.py"
 SCHEMA = ROOT / "artifacts" / "errata.abi.json"
-GENVM_VERSION = "v0.2.16"
+GENVM_VERSION = "v0.6.0-rc16"
 WRITE_SCHEMA = "--write-schema" in sys.argv
 
 
@@ -62,11 +62,16 @@ if not lint:
 
 env = os.environ.copy()
 env["GENVM_VERSION"] = GENVM_VERSION
-subprocess.run([lint, "check", str(CONTRACT), "--json"], cwd=ROOT, check=True, env=env)
+# genvm-linter 0.11.0 (newest on PyPI) cannot load the v0.4-era runner that genlayer-test 0.30.0 pins, so
+# `genvm-lint check` and `genvm-lint schema` fail with E101 for a contract that is fine. The static rules
+# (`genvm-lint lint`) still work; SDK validation and the ABI come from the runner's own SDK instead
+# (scripts/abi_schema.py). Switch back to `check` and `schema` once a genvm-linter supports this runner.
+subprocess.run([lint, "lint", str(CONTRACT), "--json"], cwd=ROOT, check=True, env=env)
 
 with tempfile.TemporaryDirectory() as temp_dir:
     generated = Path(temp_dir) / "errata.abi.json"
-    subprocess.run([lint, "schema", str(CONTRACT), "--output", str(generated)],
+    subprocess.run([sys.executable, str(ROOT / "scripts" / "abi_schema.py"), str(CONTRACT),
+                    "--output", str(generated), "--runner", GENVM_VERSION],
                    cwd=ROOT, check=True, env=env)
     if WRITE_SCHEMA:
         SCHEMA.parent.mkdir(exist_ok=True)
@@ -108,5 +113,6 @@ print(f"tests_skipped={skipped}")
 print(f"tests_failed={failed}")
 print("deployable_contract_sources=1")
 print("lint=PASS")
+print("sdk_validation=PASS")
 print(f"schema={schema_state}")
 print("preflight=PASS")
